@@ -1,6 +1,7 @@
 import Container from "../Container";
 import Logo from "./Logo"
 import Search from "./Search";
+import UserMenu from "./UserMenu";
 
 const Navbar = () => {
 
@@ -26,6 +27,7 @@ const Navbar = () => {
                         {/* { isSmallScreen ? (<SmallScreenLogo />) : (<BigScreenLogo />) } */}
                         <Logo />
                         <Search />
+                        <UserMenu />
                     </div>
                 </Container>
             </div>
