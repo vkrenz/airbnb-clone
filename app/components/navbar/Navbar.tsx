@@ -1,10 +1,11 @@
 import Container from "../Container";
-import Logo from "./Logo";
+import Logo from "./Logo"
 import Search from "./Search";
 
 const Navbar = () => {
+
     return (
-        <div className="fixed w-full bg-white z-10 shadow-sm">
+        <div className="fixed w-full bg-white z-10">
             <div
                 className="
                     py-4
@@ -22,6 +23,7 @@ const Navbar = () => {
                             md:gap-0
                         "
                     >
+                        {/* { isSmallScreen ? (<SmallScreenLogo />) : (<BigScreenLogo />) } */}
                         <Logo />
                         <Search />
                     </div>
