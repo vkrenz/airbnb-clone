@@ -9,7 +9,7 @@ const Search = () => {
                 border-[1px]
                 w-full
                 md:w-auto
-                py-2
+                py-1.5
                 rounded-full
                 shadow-md
                 hover:shadow-md
@@ -27,7 +27,7 @@ const Search = () => {
             >
                 <div
                     className="
-                        text-sm
+                        text-md
                         font-semibold
                         px-6
                     "
@@ -38,7 +38,7 @@ const Search = () => {
                     className="
                         hidden
                         sm:block
-                        text-sm
+                        text-md
                         font-semibold
                         px-6
                         border-x-[1px]
@@ -50,7 +50,7 @@ const Search = () => {
                 </div>
                 <div
                     className="
-                        text-sm
+                        text-md
                         pl-6
                         pr-2
                         text-gray-600

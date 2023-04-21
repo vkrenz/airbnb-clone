@@ -16,7 +16,7 @@ const UserMenu = () => {
 
     return (
         <div className="relative">
-            <div className="flex flex-row items-center gap-3">
+            <div className="flex flex-row items-center">
                 <div
                     onClick={() => {}}
                     className="
@@ -37,7 +37,8 @@ const UserMenu = () => {
                 <div className="hidden md:block">
                     <div 
                         className="
-                            p-3
+                            p-4
+                            mr-2
                             rounded-full 
                             hover:bg-neutral-100
                             cursor-pointer 
@@ -76,15 +77,15 @@ const UserMenu = () => {
             {isOpen && (
                 <div
                     className="
+                        mt-3
                         absolute
                         rounded-xl
                         shadow-xl
                         w-[40vw]
-                        md:w-[25vw]
+                        md:w-[28vw]
                         bg-white
                         overflow-hidden
                         right-0
-                        top-12
                         text-sm
                         py-2
                     "
