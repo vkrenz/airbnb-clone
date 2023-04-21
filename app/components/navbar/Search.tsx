@@ -12,6 +12,9 @@ const Search = () => {
                 py-1.5
                 rounded-full
                 shadow-md
+                ring-4
+                ring-gray-100
+                ring-opacity-20
                 hover:shadow-md
                 transition
                 cursor-pointer

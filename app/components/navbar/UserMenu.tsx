@@ -63,7 +63,7 @@ const UserMenu = () => {
                         rounded-full
                         cursor-pointer
                         hover:shadow-md
-                        ${isOpen ? 'shadow-xl' : ''}
+                        ${isOpen ? 'shadow-md' : ''}
                         transition
                     `}
                 >
@@ -81,6 +81,9 @@ const UserMenu = () => {
                         absolute
                         rounded-xl
                         shadow-xl
+                        ring-4
+                        ring-gray-100
+                        ring-opacity-30
                         w-[40vw]
                         md:w-[28vw]
                         bg-white
