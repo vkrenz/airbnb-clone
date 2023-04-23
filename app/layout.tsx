@@ -5,7 +5,7 @@ import ClientOnly from './components/ClientOnly'
 import Modal from './components/modals/Modal'
 
 export const metadata = {
-  title: 'Airbnb',
+  title: 'Vacation Homes & Condo Rentals - Airbnb - Airbnb',
   description: 'My Airbnb Clone!',
 }
 

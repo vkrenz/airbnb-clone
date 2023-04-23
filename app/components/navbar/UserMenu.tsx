@@ -22,7 +22,7 @@ const UserMenu = () => {
                     className="
                         hidden
                         md:block
-                        text-md
+                        text-sm
                         font-semibold
                         py-3
                         px-4
@@ -34,7 +34,7 @@ const UserMenu = () => {
                 >
                     Airbnb your home
                 </div>
-                <div className="hidden md:block">
+                <div className="hidden sm:block">
                     <div 
                         className="
                             p-4
@@ -52,10 +52,8 @@ const UserMenu = () => {
                     onClick={ toggleOpen }
                     className={`
                         p-4
-                        md:py-1.5
-                        md:px-3
                         border-[1px]
-                        border-neutral-300
+                        border-neutral-200
                         flex
                         flex-row
                         items-center
@@ -68,7 +66,7 @@ const UserMenu = () => {
                     `}
                 >
                     <AiOutlineMenu />
-                    <div className="hidden md:block">
+                    <div className="hidden sm:block">
                         <Avatar />
                     </div>
                 </div>
@@ -107,7 +105,6 @@ const UserMenu = () => {
                     </div>
                 </div>
             )}
-
         </div>
     );
 }

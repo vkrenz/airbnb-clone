@@ -9,15 +9,13 @@ const Search = () => {
                 border-[1px]
                 w-full
                 md:w-auto
-                py-1.5
+                py-2
                 rounded-full
-                shadow-md
-                ring-4
-                ring-gray-100
-                ring-opacity-20
+                shadow-sm
                 hover:shadow-md
                 transition
                 cursor-pointer
+                flex-none
             "
         >
             <div
@@ -30,7 +28,7 @@ const Search = () => {
             >
                 <div
                     className="
-                        text-md
+                        text-sm
                         font-semibold
                         px-6
                     "
@@ -41,7 +39,7 @@ const Search = () => {
                     className="
                         hidden
                         sm:block
-                        text-md
+                        text-sm
                         font-semibold
                         px-6
                         border-x-[1px]
@@ -49,11 +47,11 @@ const Search = () => {
                         text-center
                     "
                 >
-                    Any Week
+                    Any week
                 </div>
                 <div
                     className="
-                        text-md
+                        text-sm
                         pl-6
                         pr-2
                         text-gray-600
@@ -63,7 +61,14 @@ const Search = () => {
                         gap-3
                     "
                 >
-                    <div className="hidden sm:block">Add Guests</div>
+                    <div 
+                        className="
+                            hidden 
+                            sm:block
+                        "
+                    >
+                        Add guests
+                    </div>
                     <div 
                         className="
                             p-2
