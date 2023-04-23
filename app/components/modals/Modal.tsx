@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface ModalProps {
     isOpen?: boolean;
@@ -28,7 +28,34 @@ const Modal : React.FC<ModalProps> = ({
     secondaryLabel
 }) => {
 
-    const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(isOpen);
+
+    useEffect(() => {
+        setShowModal(isOpen)
+    }, [isOpen]);
+
+    const handleClose = useCallback(() => {
+        if (disabled) {
+            return;
+        }
+
+        setShowModal(false);
+        setTimeout(() => {
+            onClose();
+        }, 300)
+    }, [disabled, onClose]);
+
+    const handleSubmit = useCallback(() => {
+        if (disabled) {
+            return;
+        }
+
+        onSubmit();
+    }, [disabled, onSubmit]);
+
+    const handleSecondaryAction = useCallback(() => {
+
+    }, []);
 
     return (
         <div></div>

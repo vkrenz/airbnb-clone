@@ -9,8 +9,8 @@ const Logo = () => {
     return (
         <Image 
             alt="Logo"
-            className="hidden sm:block sm:ml-5 sm:mr-4 cursor-pointer"
-            height="35"
+            className="cursor-pointer mr-5"
+            height="100"
             width="35"
             src="/images/Logo.png"
         />

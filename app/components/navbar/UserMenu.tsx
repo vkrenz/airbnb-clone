@@ -30,6 +30,7 @@ const UserMenu = () => {
                         hover:bg-neutral-100
                         transition
                         cursor-pointer
+                        whitespace-nowrap
                     "
                 >
                     Airbnb your home
@@ -45,15 +46,14 @@ const UserMenu = () => {
                             transition
                         "
                     >
-                        <FiGlobe size="20" />
+                        <FiGlobe size={18} />
                     </div>
                 </div>
                 <div
                     onClick={ toggleOpen }
                     className={`
                         p-4
-                        md:py-1
-                        md:px-2
+                        md:p-1.5
                         border-[1px]
                         border-neutral-200
                         flex
@@ -67,7 +67,7 @@ const UserMenu = () => {
                         transition
                     `}
                 >
-                    <AiOutlineMenu />
+                    <AiOutlineMenu className="md:ml-2" />
                     <div className="hidden md:block">
                         <Avatar />
                     </div>

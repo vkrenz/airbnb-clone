@@ -9,7 +9,7 @@ const Search = () => {
                 border-[1px]
                 w-full
                 md:w-auto
-                py-2
+                py-1.5
                 rounded-full
                 shadow-sm
                 hover:shadow-md
@@ -30,6 +30,7 @@ const Search = () => {
                         text-sm
                         font-semibold
                         px-6
+                        truncate
                     "
                 >
                     Anywhere
@@ -44,6 +45,7 @@ const Search = () => {
                         border-x-[1px]
                         flex-1
                         text-center
+                        truncate
                     "
                 >
                     Any week
@@ -64,13 +66,14 @@ const Search = () => {
                         className="
                             hidden 
                             sm:block
+                            truncate
                         "
                     >
                         Add guests
                     </div>
                     <div 
                         className="
-                            p-2
+                            p-1.5
                             bg-rose-500
                             rounded-full
                             text-white
