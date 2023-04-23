@@ -34,7 +34,7 @@ const UserMenu = () => {
                 >
                     Airbnb your home
                 </div>
-                <div className="hidden sm:block">
+                <div className="hidden md:block">
                     <div 
                         className="
                             p-4
@@ -52,6 +52,8 @@ const UserMenu = () => {
                     onClick={ toggleOpen }
                     className={`
                         p-4
+                        md:py-1
+                        md:px-2
                         border-[1px]
                         border-neutral-200
                         flex
@@ -66,7 +68,7 @@ const UserMenu = () => {
                     `}
                 >
                     <AiOutlineMenu />
-                    <div className="hidden sm:block">
+                    <div className="hidden md:block">
                         <Avatar />
                     </div>
                 </div>

@@ -15,7 +15,6 @@ const Search = () => {
                 hover:shadow-md
                 transition
                 cursor-pointer
-                flex-none
             "
         >
             <div
