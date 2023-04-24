@@ -5,9 +5,10 @@ import { FiGlobe } from 'react-icons/fi'
 import Avatar from '../Avatar';
 import { useState, useCallback } from 'react'
 import MenuItem from './MenuItem';
+import useRegisterModal from '@/app/hooks/useRegisterModal';
 
 const UserMenu = () => {
-
+    const registerModal = useRegisterModal();
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleOpen = useCallback(() => {
@@ -97,11 +98,11 @@ const UserMenu = () => {
                         <>
                             <MenuItem
                                 onClick={() => {}}
-                                label="Sign Up"
+                                label="Login"
                             />
                             <MenuItem
-                                onClick={() => {}}
-                                label="Login"
+                                onClick={registerModal.onOpen}
+                                label="Sign up"
                             />
                         </>
                     </div>
