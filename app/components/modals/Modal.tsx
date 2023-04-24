@@ -132,7 +132,7 @@ const Modal : React.FC<ModalProps> = ({
                                 className="
                                     flex
                                     items-center
-                                    p-6
+                                    p-5
                                     rounded-t
                                     justify-center
                                     relative
@@ -148,15 +148,17 @@ const Modal : React.FC<ModalProps> = ({
                                         hover:opacity-70
                                         transition
                                         absolute
-                                        left-9
+                                        left-4
                                     "
                                 >
-                                    <IoMdClose />
+                                    <div className="hover:bg-neutral-100 rounded-full p-2 transition">
+                                        <IoMdClose size={21} />
+                                    </div>
                                 </button>
                                 <div
                                     className="
                                         text-lg
-                                        font-semibold
+                                        font-bold
                                     "
                                 >
                                     {title}
