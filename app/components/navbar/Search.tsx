@@ -11,8 +11,10 @@ const Search = () => {
                 md:w-auto
                 py-1.5
                 rounded-full
-                shadow-sm
+                bg-white
+                drop-shadow
                 hover:shadow-md
+                hover:drop-shadow-0
                 transition
                 cursor-pointer
             "

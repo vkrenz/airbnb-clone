@@ -3,22 +3,24 @@
 interface MenuItemProps {
     onClick: () => void;
     label: string;
+    isBold?: boolean;
 }
 
 const MenuItem  : React.FC<MenuItemProps> = ({
     onClick,
-    label
+    label,
+    isBold
 }) => {
     return (
         <div
             onClick={onClick}
-            className="
+            className={`
                 px-4
                 py-3
-                hover:bg-neutral-100
+                hover:bg-neutral-50
                 transition
-                font-semibold
-            "
+                ${isBold ? 'font-semibold' : ''}
+            `}
         >
             { label }
         </div>

@@ -29,6 +29,7 @@ const UserMenu = () => {
                         px-4
                         rounded-full
                         hover:bg-neutral-100
+                        text-neutral-800
                         transition
                         cursor-pointer
                         whitespace-nowrap
@@ -63,8 +64,9 @@ const UserMenu = () => {
                         gap-3
                         rounded-full
                         cursor-pointer
-                        hover:shadow-md
-                        ${isOpen ? 'shadow-md' : ''}
+                        hover:drop-shadow
+                        bg-white
+                        ${isOpen ? 'drop-shadow' : ''}
                         transition
                     `}
                 >
@@ -81,7 +83,7 @@ const UserMenu = () => {
                         mt-3
                         absolute
                         rounded-xl
-                        shadow-xl
+                        drop-shadow-xl
                         ring-4
                         ring-gray-100
                         ring-opacity-30
@@ -97,12 +99,22 @@ const UserMenu = () => {
                     <div className="flex flex-col cursor-pointer ">
                         <>
                             <MenuItem
+                                onClick={registerModal.onOpen}
+                                label="Sign up"
+                                isBold
+                            />
+                            <MenuItem
                                 onClick={() => {}}
                                 label="Login"
                             />
+                            <div className="my-2 bg-neutral-200 w-full h-[1px]" />
                             <MenuItem
-                                onClick={registerModal.onOpen}
-                                label="Sign up"
+                                onClick={() => {}}
+                                label="Airbnb your home"
+                            />
+                            <MenuItem
+                                onClick={() => {}}
+                                label="Help"
                             />
                         </>
                     </div>
