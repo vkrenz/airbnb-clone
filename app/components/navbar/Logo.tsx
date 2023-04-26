@@ -10,9 +10,9 @@ const Logo = () => {
         <Image 
             alt="Logo"
             className="cursor-pointer mr-5 max-h-md"
-            width="30"
-            height="30"
-            src="/images/Logo.png"
+            width="100"
+            height="100"
+            src="/images/logo.png"
         />
     );
 }

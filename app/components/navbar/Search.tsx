@@ -6,23 +6,17 @@ const Search = () => {
     return (
         <div
             className="
-                lg:absolute
-                lg:top-1/2
-                lg:left-1/2
-                lg:transform
-                lg:-translate-x-1/2
-                lg:-translate-y-1/2
                 border-[1px]
                 w-full
                 md:w-auto
+                lg:left-1/2
                 py-1.5
                 rounded-full
                 bg-white
                 drop-shadow
                 hover:shadow-md
                 hover:drop-shadow-0
-                hover:transition
-                duration-0
+                transition
                 cursor-pointer
             "
         >
