@@ -3,12 +3,19 @@
 import { AiOutlineMenu } from 'react-icons/ai'
 import { FiGlobe } from 'react-icons/fi'
 import Avatar from '../Avatar';
-import { useState, useCallback } from 'react'
+import { useState, useCallback } from 'react';
 import MenuItem from './MenuItem';
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import useLoginModal from '@/app/hooks/useLoginModal';
+import { User } from '@prisma/client';
 
-const UserMenu = () => {
+interface UserMenuProps {
+    currentUser?: User | null;
+}
+
+const UserMenu : React.FC<UserMenuProps> = ({
+    currentUser
+}) => {
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const [isOpen, setIsOpen] = useState(false);
@@ -100,26 +107,69 @@ const UserMenu = () => {
                     "
                 >
                     <div className="flex flex-col cursor-pointer ">
-                        <>
-                            <MenuItem
-                                onClick={registerModal.onOpen}
-                                label="Sign up"
-                                isBold
-                            />
-                            <MenuItem
-                                onClick={loginModal.onOpen}
-                                label="Login"
-                            />
-                            <div className="my-2 bg-neutral-200 w-full h-[1px]" />
-                            <MenuItem
-                                onClick={() => {}}
-                                label="Airbnb your home"
-                            />
-                            <MenuItem
-                                onClick={() => {}}
-                                label="Help"
-                            />
-                        </>
+                        {currentUser ? (
+                            <>
+                                <MenuItem
+                                    onClick={() => {}}
+                                    label="Trips"
+                                    isBold
+                                />
+                                <MenuItem
+                                    onClick={() => {}}
+                                    label="Favorites"
+                                    isBold
+                                />
+                                <MenuItem
+                                    onClick={() => {}}
+                                    label="Reservations"
+                                    isBold
+                                />
+                                <MenuItem
+                                    onClick={() => {}}
+                                    label="Properties"
+                                    isBold
+                                />
+                                <div className="my-2 bg-neutral-200 w-full h-[1px]" />
+                                <MenuItem
+                                    onClick={() => {}}
+                                    label="Airbnb your home"
+                                />
+                                <MenuItem
+                                    onClick={() => {}}
+                                    label="Account"
+                                />
+                                <div className="my-2 bg-neutral-200 w-full h-[1px]" />
+                                <MenuItem
+                                    onClick={() => {}}
+                                    label="Help"
+                                />
+                                <MenuItem
+                                    onClick={() => {}}
+                                    label="Log Out"
+                                />
+                            </>
+                        ) : (
+                            <>
+                                <MenuItem
+                                    onClick={registerModal.onOpen}
+                                    label="Sign up"
+                                    isBold
+                                />
+                                <MenuItem
+                                    onClick={loginModal.onOpen}
+                                    label="Login"
+                                />
+                                <div className="my-2 bg-neutral-200 w-full h-[1px]" />
+                                <MenuItem
+                                    onClick={() => {}}
+                                    label="Airbnb your home"
+                                />
+                                <MenuItem
+                                    onClick={() => {}}
+                                    label="Help"
+                                />
+                            </>
+                        )}
                     </div>
                 </div>
             )}
