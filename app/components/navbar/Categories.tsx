@@ -6,6 +6,8 @@ import { TbBeach } from 'react-icons/tb';
 import { GiWindmill } from 'react-icons/gi';
 import { MdOutlineVilla } from 'react-icons/md';
 
+import CategoryBox from "../CategoryBox";
+
 export const categories = [
     {
         label: 'Beach',
@@ -37,12 +39,12 @@ const Categories = () => {
                     overflow-x-auto
                 "
             >
-                {categories.map(category => (
+                {categories.map((item) => (
                     <CategoryBox 
-                        key={category.label}
-                        label={category.label}
-                        description={category.description}
-                        icon={category.icon}
+                        key={item.label}
+                        label={item.label}
+                        description={item.description}
+                        icon={item.icon}
                     />
                 ))}
             </div>

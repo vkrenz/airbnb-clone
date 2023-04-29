@@ -89,7 +89,7 @@ const Modal : React.FC<ModalProps> = ({
                     className="
                         relative
                         w-full
-                        md:max-w-lg
+                        md:max-w-xl
                         lg:w-3/6
                         xl:w-2/5
                         my-6
@@ -158,7 +158,7 @@ const Modal : React.FC<ModalProps> = ({
                                 <div
                                     className="
                                         text-lg
-                                        font-bold
+                                        font-semibold
                                     "
                                 >
                                     {title}
@@ -169,7 +169,7 @@ const Modal : React.FC<ModalProps> = ({
                                 {body}
                             </div>
                             {/* Footer */}
-                            <div className="flex flex-col gap-2 p-6">
+                            <div className="flex flex-col gap-2 pb-6 px-6">
                                 <div
                                     className="
                                         flex
