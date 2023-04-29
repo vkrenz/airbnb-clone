@@ -89,7 +89,7 @@ const Modal : React.FC<ModalProps> = ({
                     className="
                         relative
                         w-full
-                        md:w-4/6
+                        md:max-w-lg
                         lg:w-3/6
                         xl:w-2/5
                         my-6
