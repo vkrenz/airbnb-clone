@@ -1,5 +1,3 @@
-'use client'
-
 import Container from "../Container";
 
 import { TbBeach } from 'react-icons/tb';
@@ -39,12 +37,12 @@ const Categories = () => {
                     overflow-x-auto
                 "
             >
-                {categories.map((item) => (
+                {categories.map((category, index) => (
                     <CategoryBox 
-                        key={item.label}
-                        label={item.label}
-                        description={item.description}
-                        icon={item.icon}
+                        key={index}
+                        label={category.label}
+                        description={category.description}
+                        icon={category.icon}
                     />
                 ))}
             </div>

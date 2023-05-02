@@ -1,9 +1,7 @@
-'use client'
-
-import { IconType } from "react-icons";
+import { IconBaseProps } from "react-icons";
 
 interface CategoryBoxProps {
-    icon: IconType;
+    icon: React.ComponentType<IconBaseProps>;
     label: string;
     description: string;
     selected?: boolean;
@@ -32,8 +30,7 @@ const CategoryBox : React.FC<CategoryBoxProps> = ({
                 ${selected ? 'text-neutral-800' : 'text-neutral-500'}
             `}
         >
-            <h1>{label}</h1>
-            <h2>{description}</h2>
+            <Icon size={26} />
         </div>
     );
 }
