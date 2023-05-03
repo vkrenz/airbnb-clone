@@ -23,16 +23,20 @@ const CategoryBox : React.FC<CategoryBoxProps> = ({
     const handleClick = useCallback(() => {
         let currentQuery = {};
 
-        if (params) currentQuery = qs.parse(params.toString());
+        if (params) {
+            currentQuery = qs.parse(params.toString())
+        };
 
         const updatedQuery: any = {
             ...currentQuery,
             category: label
         }
 
-        if (params?.get('category') === label) delete updatedQuery.category;
+        if (params?.get('category') === label) {
+            delete updatedQuery.category;
+        }
 
-        const url = qs.stringify({
+        const url = qs.stringifyUrl({
             url: '/',
             query: updatedQuery
         }, { skipNull: true });
@@ -52,6 +56,7 @@ const CategoryBox : React.FC<CategoryBoxProps> = ({
                 p-3
                 border-b-2
                 hover:text-neutral-800
+                hover:border-b-neutral-300
                 transition
                 cursor-pointer
                 ${selected ? 'border-b-neutral-800' : 'border-transparent'}
