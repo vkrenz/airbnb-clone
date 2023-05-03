@@ -7,7 +7,8 @@ const Logo = () => {
     const router = useRouter();
 
     return (
-        <Image 
+        <Image
+            onClick={() => router.push('/')} 
             alt="Logo"
             className="cursor-pointer mr-5 max-h-md"
             width="100"
