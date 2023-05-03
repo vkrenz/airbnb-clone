@@ -23,8 +23,8 @@ import { useRouter } from 'next/navigation';
 const LoginModal = () => {
     const router = useRouter();
 
-    const RegisterModal = useRegisterModal()
-    const LoginModal = useLoginModal();
+    const registerModal = useRegisterModal()
+    const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
 
     const {
@@ -53,7 +53,7 @@ const LoginModal = () => {
             if (cb?.ok) {
                 toast.success('Successfully logged in');
                 router.refresh();
-                LoginModal.onClose();
+                loginModal.onClose();
             }
 
             if (cb?.error) {
@@ -63,9 +63,9 @@ const LoginModal = () => {
     }
 
     const toggle = useCallback(() => {
-        LoginModal.onClose();
-        RegisterModal.onOpen();
-    }, [LoginModal, RegisterModal])
+        loginModal.onClose();
+        registerModal.onOpen();
+    }, [loginModal, registerModal])
 
     const bodyContent = (
         <div className="flex flex-col gap-4">
@@ -148,10 +148,10 @@ const LoginModal = () => {
     return (
         <Modal 
             disabled={isLoading}
-            isOpen={LoginModal.isOpen}
+            isOpen={loginModal.isOpen}
             title="Login"
             actionLabel="Continue"
-            onClose={LoginModal.onClose}
+            onClose={loginModal.onClose}
             onSubmit={handleSubmit(onSubmit)}
             body={bodyContent}
             footer={footerContent}
