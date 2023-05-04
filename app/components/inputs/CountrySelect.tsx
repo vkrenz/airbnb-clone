@@ -1,6 +1,7 @@
 'use client'
 
 import Select from 'react-select';
+// import ReactFlagSelect from 'react-flags-select';
 
 import useCountries from '@/app/hooks/useCountries';
 
@@ -34,6 +35,11 @@ const CountrySelect : React.FC<CountrySelectProps> = ({
                 formatOptionLabel={(opt: any) => (
                     <div className="flex flex-row items-center gap-3">
                         <div>{opt.flag}</div>
+                        {/* <ReactFlagSelect
+                            selected={opt.value.toLowerCase()}
+                            selectedSize={18}
+                            onSelect={() => {}}
+                        /> */}
                         <div>
                             {opt.label},
                             <span className="text-neutral-500 ml-1">
