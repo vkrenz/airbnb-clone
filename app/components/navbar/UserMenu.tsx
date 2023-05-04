@@ -175,7 +175,7 @@ const UserMenu : React.FC<UserMenuProps> = ({
                                 />
                                 <div className="my-2 bg-neutral-200 w-full h-[1px]" />
                                 <MenuItem
-                                    onClick={() => {}}
+                                    onClick={onRent}
                                     label="Airbnb your home"
                                 />
                                 <MenuItem
