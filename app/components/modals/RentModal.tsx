@@ -5,6 +5,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 
 import useRentModal from "@/app/hooks/useRentModal";
 
+import Map from '../Map';
 import Modal from "./Modal";
 import Heading from '../Heading';
 import { categories } from '../navbar/Categories';
@@ -49,6 +50,7 @@ const RentModal = () => {
     });
 
     const category = watch('category');
+    const location = watch('location');
 
     const setCustomValue = (id: string, val: any) => {
         setValue(id, val, {
@@ -115,8 +117,10 @@ const RentModal = () => {
                     subtitle="Help guests find you!"
                 />
                     <CountrySelect
-                        
+                        value={location}
+                        onChange={val => setCustomValue('location', val)}
                     />
+                    <Map />
             </div>
         )
     }

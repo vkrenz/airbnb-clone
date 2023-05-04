@@ -42,7 +42,7 @@ const CountrySelect : React.FC<CountrySelectProps> = ({
                         /> */}
                         <div>
                             {opt.label},
-                            <span className="text-neutral-500 ml-1">
+                            <span className="text-neutral-500 ml-1 text-bold">
                                 {opt.region}
                             </span>
                         </div>
