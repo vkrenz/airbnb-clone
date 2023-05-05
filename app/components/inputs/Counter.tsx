@@ -58,7 +58,7 @@ const Counter : React.FC<CounterProps> = ({
                 >
                     <AiOutlineMinus />
                 </div>
-                <div className="font-light text-xl text-neutral-600">
+                <div className="font-light text-xl text-neutral-600 w-2">
                     {value}
                 </div>
                 <div
