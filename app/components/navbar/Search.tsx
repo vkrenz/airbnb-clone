@@ -35,7 +35,7 @@ const Search = () => {
                 <div
                     className="
                         text-sm
-                        font-semibold
+                        font-bold
                         px-6
                         truncate
                     "
@@ -47,7 +47,7 @@ const Search = () => {
                         hidden
                         sm:block
                         text-sm
-                        font-semibold
+                        font-bold
                         px-6
                         border-x-[1px]
                         flex-1

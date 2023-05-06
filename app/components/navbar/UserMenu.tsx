@@ -47,7 +47,7 @@ const UserMenu : React.FC<UserMenuProps> = ({
                         hidden
                         md:block
                         text-sm
-                        font-semibold
+                        font-bold
                         py-3
                         px-4
                         rounded-full
