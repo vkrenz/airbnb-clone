@@ -8,6 +8,7 @@ import useCountries from "@/app/hooks/useCountries";
 import React, { useCallback, useMemo } from "react";
 import { format } from 'date-fns';
 import Image from "next/image";
+import HeartButton from "../HeartButton";
 
 interface ListingCardProps {
     data: Listing;
