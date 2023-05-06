@@ -130,6 +130,7 @@ const RentModal = () => {
                     gap-3
                     max-h-[50vh]
                     overflow-y-auto
+                    scrollbar-hide
                 "
             >
                 {categories.map(item => (
