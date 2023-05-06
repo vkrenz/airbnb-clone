@@ -80,7 +80,7 @@ export const categories = [
         description: 'Phasellus vel consectetur dolor.'
     },
     {
-        label: 'Brans',
+        label: 'Barns',
         icon: GiBarn,
         description: 'Aenean vel elit nec libero.'
     },
