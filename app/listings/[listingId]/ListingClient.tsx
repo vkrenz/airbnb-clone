@@ -154,7 +154,8 @@ const ListingClient : React.FC<ListingClientProps> = ({
                                     mb-10
                                     md:order-last
                                     md:col-span-3
-                                    ml-8
+                                    md:ml-8
+                                    col-span-4
                                 "
                             >
                                 <ListingReservation
