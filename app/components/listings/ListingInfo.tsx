@@ -101,7 +101,7 @@ const ListingInfo : React.FC<ListingInfoProps> = ({
             )}
             <hr className="my-6"/>
             <div className="text-lg font-light text-neutral-500">
-                {description}a
+                {description}
             </div>
             <hr className="my-6"/>
             <Map
