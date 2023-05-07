@@ -19,8 +19,8 @@ const ListingClient : React.FC<ListingClientProps> = ({
     currentUser
 }) => {
     const category = useMemo(() => {
-        return categories
-    }, []);
+        return categories.find(category => category.label === listing.category);
+    }, [listing.category]);
 
     return (
         <div>
