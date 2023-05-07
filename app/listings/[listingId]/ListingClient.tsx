@@ -16,6 +16,7 @@ import ListingInfo from "@/app/components/listings/ListingInfo";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import ListingReservation from "@/app/components/listings/ListingReservation";
+import { IoDiamondOutline } from "react-icons/io5";
 
 const initialDateRange = {
     startDate: new Date(),
@@ -108,6 +109,15 @@ const ListingClient : React.FC<ListingClientProps> = ({
         return categories.find(category => category.label === listing.category);
     }, [listing.category]);
 
+    const getFirstName = (name: string | any): string | any => {
+        if (!name) return null;
+
+        const names = name.split(" ");
+        return names[0];
+    }
+
+    const firstName = getFirstName(listing.user.name);
+
     return (
         <div>
             <Container>
@@ -156,6 +166,12 @@ const ListingClient : React.FC<ListingClientProps> = ({
                                     disabled={isLoading}
                                     disabledDates={disabledDates}
                                 />
+                                <div className="mt-4 border border-neutral-300 rounded-xl p-6 flex flex-row items-center justify-between">
+                                    <div className="font-light">
+                                        <strong className="font-semibold">This is a rare find.</strong> {firstName}'s place on Airbnb is usually fully booked.
+                                    </div>
+                                    <IoDiamondOutline className="text-rose-500 ml-4" size={50} />
+                                </div>
                             </div>
                         </div>
                     </div>
