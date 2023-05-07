@@ -8,6 +8,9 @@ import { SafeUser } from "@/app/types";
 
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
+import { GrGroup } from "react-icons/gr";
+import { MdOutlineBedroomParent } from "react-icons/md";
+import { FaShower } from "react-icons/fa";
 
 const Map = dynamic (() => import('../Map'), {
     ssr: false
@@ -50,7 +53,9 @@ const ListingInfo : React.FC<ListingInfoProps> = ({
                         flex
                         flex-row
                         items-center
-                        gap-2
+                        justify-between
+                        gap-3
+                        mb-4
                     "
                 >
                     <div>
@@ -58,6 +63,7 @@ const ListingInfo : React.FC<ListingInfoProps> = ({
                     </div>
                     <Avatar
                         src={user?.image}
+                        large
                     />
                 </div>
                 <div
@@ -67,17 +73,21 @@ const ListingInfo : React.FC<ListingInfoProps> = ({
                         items-center
                         gap-4
                         font-light
-                        text-neutral-500
+                        text-neutral-800
+                        justify-between
                     "
                 >
-                    <div>
-                        {guestCount} guests
+                    <div className="flex flex-row gap-3 items-center justify-center py-6 border rounded-xl border-neutral-300 flex-grow">
+                        <GrGroup size={24} />
+                        {guestCount} {guestCount > 1 ? 'guests' : 'guest'}
                     </div>
-                    <div>
-                        {roomCount} rooms
+                    <div className="flex flex-row gap-3 items-center justify-center py-6 border rounded-xl border-neutral-300 flex-grow">
+                        <MdOutlineBedroomParent size={24} />
+                        {roomCount} {roomCount > 1 ? 'rooms' : 'room'}
                     </div>
-                    <div>
-                        {bathroomCount} bathrooms
+                    <div className="flex flex-row gap-3 items-center justify-center py-6 border rounded-xl border-neutral-300 flex-grow">
+                        <FaShower size={24} />
+                        {bathroomCount} {bathroomCount > 1 ? 'bathrooms' : 'bathroom'}
                     </div>
                 </div>
             </div>

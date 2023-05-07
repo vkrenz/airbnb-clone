@@ -3,11 +3,11 @@
 import Container from "../Container";
 
 import { TbBeach, TbMountain, TbPool } from 'react-icons/tb';
-import { GiWindmill, GiIsland, GiBoatFishing, GiCastle, GiForestCamp, GiCaveEntrance, GiCactus, GiBarn } from 'react-icons/gi'
+import { GiWindmill, GiIsland, GiBoatFishing, GiCastle, GiForestCamp, GiCaveEntrance, GiCactus, GiBarn, GiJungle, GiPaintBrush, GiFlowerPot } from 'react-icons/gi'
 import { MdOutlineVilla } from 'react-icons/md'
-import { FaSkiing } from 'react-icons/fa';
+import { FaLandmark, FaSkiing } from 'react-icons/fa';
 import { BsSnow } from 'react-icons/bs';
-import { IoDiamond } from 'react-icons/io5';
+import { IoDiamond, IoHeartSharp } from 'react-icons/io5';
 
 import CategoryBox from '../CategoryBox';
 import { useSearchParams, usePathname } from "next/navigation";
@@ -15,81 +15,102 @@ import { useSearchParams, usePathname } from "next/navigation";
 
 export const categories = [
     {
-        label: 'Beach',
+        label: 'Beachfront',
         icon: TbBeach,
-        description: 'Lorem ipsum dolor sit amet, consectetur.'
+        description: 'Enjoy a seaside escape with beautiful views and easy access to the beach.'
     },
     {
-        label: 'Windmills',
+        label: 'Rustic',
         icon: GiWindmill,
-        description: 'Vivamus suscipit tortor eget felis.'
+        description: 'Experience a simpler way of life with cozy cabins and homes that evoke a bygone era.'
     },
     {
         label: 'Modern',
         icon: MdOutlineVilla,
-        description: 'Dolor sit amet, consectetur adipiscing elit.'
+        description: 'Stay in sleek, contemporary homes that offer style and sophistication.'
     },
     {
         label: 'Mountain',
         icon: TbMountain,
-        description: 'Aliquam erat volutpat. Nam libero justo.'
+        description: 'Escape to the mountains and enjoy breathtaking views, fresh air, and outdoor activities.'
     },
     {
         label: 'Pools',
         icon: TbPool,
-        description: 'Duis aute irure dolor in reprehenderit.'
+        description: 'Relax and unwind in homes with private pools, hot tubs, and luxurious amenities.'
     },
     {
-        label: 'Islands',
+        label: 'Island',
         icon: GiIsland,
-        description: 'Nunc tincidunt lacus quis nisl finibus.'
+        description: 'Discover idyllic islands with crystal-clear waters, palm trees, and white sand beaches.'
     },
     {
-        label: 'Lake',
+        label: 'Lakefront',
         icon: GiBoatFishing,
-        description: 'Praesent non feugiat justo, vitae.'
+        description: 'Enjoy lakefront homes with beautiful views and water activities like fishing and boating.'
     },
     {
         label: 'Skiing',
         icon: FaSkiing,
-        description: 'Nullam cursus sit amet ex vel.'
+        description: 'Hit the slopes and stay in cozy homes and cabins near popular ski resorts.'
     },
     {
         label: 'Castles',
         icon: GiCastle,
-        description: 'Curabitur dictum nisl non felis efficitur.'
+        description: 'Live like royalty in grand castles and chateaux with historic architecture and lavish interiors.'
     },
     {
         label: 'Camping',
         icon: GiForestCamp,
-        description: 'Vivamus sagittis, tortor quis pretium.'
+        description: 'Experience luxury camping in beautiful natural settings with all the amenities of home.'
     },
     {
         label: 'Arctic',
         icon: BsSnow,
-        description: 'Proin euismod massa ac urna.'
+        description: 'Embark on an adventure to the icy north and see the stunning natural beauty of the Arctic.'
     },
     {
-        label: 'Cave',
+        label: 'Caves',
         icon: GiCaveEntrance,
-        description: 'Ut enim ad minim veniam, quis.'
+        description: 'Stay in unique and unusual homes carved into cliffs and nestled in natural caves.'
     },
     {
         label: 'Desert',
         icon: GiCactus,
-        description: 'Phasellus vel consectetur dolor.'
+        description: 'Find peace and solitude in the vast deserts of the world, with unique and luxurious homes.'
     },
     {
-        label: 'Barns',
+        label: 'Farm',
         icon: GiBarn,
-        description: 'Aenean vel elit nec libero.'
+        description: 'Get back to nature with farm stays and rural escapes, surrounded by fields and countryside.'
+    },
+    {
+        label: 'Jungle',
+        icon: GiJungle,
+        description: 'Explore lush forests and exotic wildlife in some of the world\'s most beautiful jungles.',
+    },
+    {
+        label: 'Romantic',
+        icon: IoHeartSharp,
+        description: 'Experience the ultimate romantic getaway in some of the world\'s most beautiful destinations.',
+    },
+    {
+        label: 'Garden',
+        icon: GiFlowerPot,
+        description: 'Relax in beautiful gardens and green spaces.',
+    },
+    {
+        label: 'Historic',
+        icon: FaLandmark,
+        description: 'Stay in some of the world\'s most famous historic sites and monuments.',
     },
     {
         label: 'Lux',
         icon: IoDiamond,
-        description: 'Sed ut perspiciatis unde omnis iste.'
+        description: 'Indulge in opulent and extravagant homes and villas, with all the amenities of a five-star hotel.'
     },
 ]
+
 
 const Categories = () => {
     const params = useSearchParams();

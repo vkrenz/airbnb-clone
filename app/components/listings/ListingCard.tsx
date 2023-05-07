@@ -3,16 +3,17 @@
 import { useRouter } from "next/navigation";
 import { Listing, Reservation } from "@prisma/client";
 
-import { SafeUser, safeListing } from "@/app/types";
+import { SafeUser, SafeListing } from "@/app/types";
 import useCountries from "@/app/hooks/useCountries";
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { format } from 'date-fns';
 import Image from "next/image";
 import HeartButton from "../HeartButton";
 import Button from "../Button";
+import Avatar from "../Avatar";
 
 interface ListingCardProps {
-    data: safeListing;
+    data: SafeListing;
     reservation?: Reservation;
     onAction?: (id: string) => void;
     disabled?: boolean;
@@ -96,18 +97,17 @@ const ListingCard : React.FC<ListingCardProps> = ({
                             transition
                         "
                     />
-                    <div
-                        className="
-                            absolute
-                            top-3
-                            right-3
-                        "
-                    >
+                    <div className="absolute top-3 right-3">
                         <HeartButton
                             listingId={data.id}
                             currentUser={currentUser}
                         />
                     </div>
+                    {/* <div className="asbolute bottom-3 left-3 text-red">
+                        <Avatar
+                            src={data.imageSrc}
+                        />
+                    </div> */}
                 </div>
                 <div
                     className="
