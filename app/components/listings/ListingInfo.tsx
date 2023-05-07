@@ -76,7 +76,7 @@ const ListingInfo : React.FC<ListingInfoProps> = ({
                     </div>
                 </div>
             </div>
-            <hr className="mt-4"/>
+            <hr className="my-6"/>
             {category && (
                 <ListingCategory
                     icon={category.icon}
