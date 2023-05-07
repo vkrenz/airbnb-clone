@@ -36,6 +36,19 @@ const ListingClient : React.FC<ListingClientProps> = ({
                             id={listing.id}
                             currentUser={currentUser}
                         />
+                        <div 
+                            className="
+                                grid
+                                grid-col-1
+                                md:grid-cols-7
+                                md:gap-10
+                                mt-6
+                            "
+                        >
+                            <ListingInfo
+                                
+                            />
+                        </div>
                     </div>
                 </div>
             </Container>
