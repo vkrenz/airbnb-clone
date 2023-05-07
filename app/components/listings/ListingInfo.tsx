@@ -6,6 +6,7 @@ import useCountries from "@/app/hooks/useCountries";
 import { SafeUser } from "@/app/types";
 
 import Avatar from "../Avatar";
+import ListingCategory from "./ListingCategory";
 
 interface ListingInfoProps {
     user: SafeUser | null;
@@ -54,7 +55,35 @@ const ListingInfo : React.FC<ListingInfoProps> = ({
                         src={user?.image}
                     />
                 </div>
+                <div
+                    className="
+                        flex
+                        flex-row
+                        items-center
+                        gap-4
+                        font-light
+                        text-neutral-500
+                    "
+                >
+                    <div>
+                        {guestCount} guests
+                    </div>
+                    <div>
+                        {roomCount} rooms
+                    </div>
+                    <div>
+                        {bathroomCount} bathrooms
+                    </div>
+                </div>
             </div>
+            <hr className="mt-4"/>
+            {category && (
+                <ListingCategory
+                    icon={category.icon}
+                    label={category.label}
+                    description={category.description} 
+                />
+            )}
         </div>
     );
 }
