@@ -72,7 +72,7 @@ model Reservation {
   listingId String @db.ObjectId
   startDate DateTime
   endDate DateTime
-  totalPrice Int
+  totalPrice Float
   createdAt DateTime @default(now())
 
   // Relations
