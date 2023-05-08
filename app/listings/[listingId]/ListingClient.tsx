@@ -152,6 +152,10 @@ const ListingClient : React.FC<ListingClientProps> = ({
 
     const firstName = getFirstName(listing.user.name);
 
+    useEffect(() => {
+        document.title=`${listing.title}`;
+    }, [listing.title]);
+
     return (
         <div>
             <Container>
