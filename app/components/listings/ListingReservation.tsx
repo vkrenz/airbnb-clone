@@ -12,7 +12,7 @@ interface ListingReservationProps {
     onChangeDate: (value: Range) => void;
     onSubmit: () => void;
     disabled?: boolean;
-    disabledDates?: Date[];
+    disabledDates?: Date[] | [];
     daysCount?: number;
     fees: {name: string, amount: number}[] | [];
     tax: number;

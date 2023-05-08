@@ -7,7 +7,6 @@ import { toast } from "react-hot-toast";
 
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Reservation } from "@prisma/client";
 
 import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import { categories } from "@/app/components/navbar/Categories";
@@ -42,6 +41,12 @@ const ListingClient : React.FC<ListingClientProps> = ({
 }) => {
     const loginModal = useLoginModal();
     const router = useRouter();
+    
+    const [isLoading, setIsLoading] = useState(false);
+    const [totalPrice, setTotalPrice] = useState(listing.price);
+    const [dateRange, setDateRange] = useState<Range>(initialDateRange);
+    const [daysCount, setDaysCount] = useState(1);
+    const [tax, setTax] = useState<number>(0);
 
     const disabledDates = useMemo(() => {
         let dates: Date[] = [];
@@ -53,16 +58,10 @@ const ListingClient : React.FC<ListingClientProps> = ({
             });
 
             dates = [...dates, ...range];
-
-            return dates;
-        })
+        });
+        
+        return dates;
     }, [reservations]);
-
-    const [isLoading, setIsLoading] = useState(false);
-    const [totalPrice, setTotalPrice] = useState(listing.price);
-    const [dateRange, setDateRange] = useState<Range>(initialDateRange);
-    const [daysCount, setDaysCount] = useState(1);
-    const [tax, setTax] = useState<number>(0);
 
     const fees = [
         {
@@ -72,7 +71,7 @@ const ListingClient : React.FC<ListingClientProps> = ({
         {
             name: "Airbnb Service Fee",
             amount: 102
-        }
+        },
     ];
 
     const recalculateTotal = (oldTotal: number, currentTax: number) => {
