@@ -1,6 +1,8 @@
 'use client'
 
 import axios from "axios";
+
+import { Range } from "react-date-range";
 import { toast } from "react-hot-toast";
 
 import { useRouter } from "next/navigation";
@@ -57,7 +59,9 @@ const ListingClient : React.FC<ListingClientProps> = ({
 
     const [isLoading, setIsLoading] = useState(false);
     const [totalPrice, setTotalPrice] = useState(listing.price);
-    const [dateRange, setDateRange] = useState(initialDateRange);
+    const [dateRange, setDateRange] = useState<Range>(initialDateRange);
+    const [daysCount, setDaysCount] = useState(1);
+    const [tax, setTax] = useState(0);
 
     const onCreateReservation = useCallback(() => {
         if (!currentUser) return loginModal.onOpen();
@@ -100,6 +104,8 @@ const ListingClient : React.FC<ListingClientProps> = ({
                 dateRange.startDate
             );
 
+            setDaysCount(dayCount);
+
             if (dayCount && listing.price) setTotalPrice(dayCount * listing.price);
             else setTotalPrice(listing.price);
         }
@@ -117,6 +123,31 @@ const ListingClient : React.FC<ListingClientProps> = ({
     }
 
     const firstName = getFirstName(listing.user.name);
+
+    const extraFees = [
+        {
+            name: "Cleaning Fee",
+            amount: 60
+        },
+        {
+            name: "Airbnb Service Fee",
+            amount: 102
+        }
+    ];
+
+    const recalculateTotal = (oldTotal: number) => {
+        let total = oldTotal;
+
+        extraFees.forEach(fee => {
+            total += fee.amount;
+        });
+
+        setTax(tax * 0.13);
+
+        return total + tax;
+    }
+
+    const newTotal = recalculateTotal(totalPrice);
 
     return (
         <div>
@@ -155,7 +186,6 @@ const ListingClient : React.FC<ListingClientProps> = ({
                                     md:order-last
                                     md:col-span-3
                                     md:ml-8
-                                    col-span-4
                                 "
                             >
                                 <ListingReservation
@@ -166,6 +196,9 @@ const ListingClient : React.FC<ListingClientProps> = ({
                                     onSubmit={onCreateReservation}
                                     disabled={isLoading}
                                     disabledDates={disabledDates}
+                                    daysCount={daysCount}
+                                    extraFees={extraFees}
+                                    tax={tax}
                                 />
                                 <div className="mt-4 border border-neutral-300 rounded-xl p-6 flex flex-row items-center justify-between">
                                     <div className="font-light">

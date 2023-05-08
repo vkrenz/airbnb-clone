@@ -29,8 +29,8 @@ export default async function Home() {
             sm:grid-cols-2
             md:grid-cols-3
             lg:grid-cols-4
-            2xl:grid-cols-5
-            3xl:grid-cols-6
+            3xl:grid-cols-5
+            4xl:grid-cols-6
             gap-8
           "
         >
