@@ -86,7 +86,7 @@ const ListingClient : React.FC<ListingClientProps> = ({
     }
 
     useEffect(() => {
-        setTax(totalPrice * 0.13);
+        setTax(Number((totalPrice * 0.13).toFixed(2)));
     }, [totalPrice]);
 
     const newTotal = recalculateTotal(totalPrice, tax);

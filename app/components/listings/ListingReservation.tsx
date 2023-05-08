@@ -63,19 +63,19 @@ const ListingReservation : React.FC<ListingReservationProps> = ({
                 label="Reserve"
                 onClick={onSubmit}
             />
-            <div className="flex flex-row justify-between my-6 text-neutral-400">
+            <div className="flex flex-row justify-between my-6 text-neutral-560">
                 <div className="underline">${price} CAD x {daysCount || 1} {daysCount || 1 > 1 ? 'nights' : 'night'}</div>
                 <div>${totalPerNight} CAD</div>
             </div>
             <div>
                 {fees.map((fee, index) => (
-                    <div key={index} className="flex flex-row justify-between my-6 text-neutral-400">
+                    <div key={index} className="flex flex-row justify-between my-6 text-neutral-600">
                         <div className="underline">{fee.name}</div>
                         <div>{`$${fee.amount} CAD`}</div>
                     </div>
                 ))}
             </div>
-            <div className="flex flex-row justify-between my-6 text-neutral-400">
+            <div className="flex flex-row justify-between my-6 text-neutral-600">
                 <div className="underline">Taxes</div>
                 <div>${tax} CAD</div>
             </div>
