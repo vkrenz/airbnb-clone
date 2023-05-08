@@ -19,6 +19,7 @@ import useLoginModal from "@/app/hooks/useLoginModal";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import ListingReservation from "@/app/components/listings/ListingReservation";
 import { IoDiamondOutline } from "react-icons/io5";
+import { AiTwotoneFlag } from "react-icons/ai";
 
 const initialDateRange = {
     startDate: new Date(),
@@ -61,7 +62,34 @@ const ListingClient : React.FC<ListingClientProps> = ({
     const [totalPrice, setTotalPrice] = useState(listing.price);
     const [dateRange, setDateRange] = useState<Range>(initialDateRange);
     const [daysCount, setDaysCount] = useState(1);
-    const [tax, setTax] = useState(0);
+    const [tax, setTax] = useState<number>(0);
+
+    const fees = [
+        {
+            name: "Cleaning Fee",
+            amount: 60
+        },
+        {
+            name: "Airbnb Service Fee",
+            amount: 102
+        }
+    ];
+
+    const recalculateTotal = (oldTotal: number, currentTax: number) => {
+        let total = oldTotal;
+
+        fees.forEach(fee => {
+            total = total + fee.amount;
+        });
+
+        return total + currentTax;
+    }
+
+    useEffect(() => {
+        setTax(totalPrice * 0.13);
+    }, [totalPrice]);
+
+    const newTotal = recalculateTotal(totalPrice, tax);
 
     const onCreateReservation = useCallback(() => {
         if (!currentUser) return loginModal.onOpen();
@@ -69,7 +97,7 @@ const ListingClient : React.FC<ListingClientProps> = ({
         setIsLoading(true);
 
         axios.post('/api/reservations', {
-            totalPrice,
+            newTotal,
             startDate: dateRange.startDate,
             endDate: dateRange.endDate,
             listingId: listing?.id
@@ -89,7 +117,7 @@ const ListingClient : React.FC<ListingClientProps> = ({
             setIsLoading(false);
         })
     }, [
-        totalPrice,
+        newTotal,
         dateRange,
         listing?.id,
         router,
@@ -123,31 +151,6 @@ const ListingClient : React.FC<ListingClientProps> = ({
     }
 
     const firstName = getFirstName(listing.user.name);
-
-    const extraFees = [
-        {
-            name: "Cleaning Fee",
-            amount: 60
-        },
-        {
-            name: "Airbnb Service Fee",
-            amount: 102
-        }
-    ];
-
-    const recalculateTotal = (oldTotal: number) => {
-        let total = oldTotal;
-
-        extraFees.forEach(fee => {
-            total += fee.amount;
-        });
-
-        setTax(tax * 0.13);
-
-        return total + tax;
-    }
-
-    const newTotal = recalculateTotal(totalPrice);
 
     return (
         <div>
@@ -190,14 +193,15 @@ const ListingClient : React.FC<ListingClientProps> = ({
                             >
                                 <ListingReservation
                                     price={listing.price}
-                                    totalPrice={totalPrice}
+                                    totalPerNight={totalPrice}
+                                    totalPrice={newTotal}
                                     onChangeDate={val => setDateRange(val)}
                                     dateRange={dateRange}
                                     onSubmit={onCreateReservation}
                                     disabled={isLoading}
                                     disabledDates={disabledDates}
                                     daysCount={daysCount}
-                                    extraFees={extraFees}
+                                    fees={fees}
                                     tax={tax}
                                 />
                                 <div className="mt-4 border border-neutral-300 rounded-xl p-6 flex flex-row items-center justify-between">
@@ -205,6 +209,10 @@ const ListingClient : React.FC<ListingClientProps> = ({
                                         <strong className="font-semibold">This is a rare find.</strong> {firstName}'s place on Airbnb is usually fully booked.
                                     </div>
                                     <IoDiamondOutline className="text-rose-500 ml-4" size={50} />
+                                </div>
+                                <div className="mt-6 flex items-center justify-center gap-3 text-neutral-600 cursor-pointer">
+                                        <AiTwotoneFlag />
+                                        <div className="underline text-semibold">Report this listing</div>
                                 </div>
                             </div>
                         </div>
