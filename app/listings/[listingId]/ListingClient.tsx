@@ -59,7 +59,7 @@ const ListingClient : React.FC<ListingClientProps> = ({
 
             dates = [...dates, ...range];
         });
-        
+
         return dates;
     }, [reservations]);
 
@@ -152,7 +152,7 @@ const ListingClient : React.FC<ListingClientProps> = ({
     const firstName = getFirstName(listing.user.name);
 
     useEffect(() => {
-        document.title=`${listing.title}`;
+        document.title=`${listing.title}, ${listing.locationValue}`;
     }, [listing.title]);
 
     return (

@@ -14,6 +14,7 @@ interface ImageUploadProps {
     value: string;
 }
 
+
 const ImageUpload : React.FC<ImageUploadProps> = ({
     onChange,
     value
@@ -27,7 +28,8 @@ const ImageUpload : React.FC<ImageUploadProps> = ({
             onUpload={handleUpload}
             uploadPreset="dewurzve"
             options={{
-                maxFiles: 1
+                maxFiles: 1,
+                cropping: true
             }}
         >
             {({ open }) => {
