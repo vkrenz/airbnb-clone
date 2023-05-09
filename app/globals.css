@@ -48,3 +48,23 @@ body,
   font-size: 16px !important;
   width: 100% !important;
 }
+
+.icon {
+  position: relative;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.my-icon:hover .tooltip {
+  visibility: visible;
+}

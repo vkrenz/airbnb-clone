@@ -1,9 +1,8 @@
 'use client'
 
 import { useRouter } from "next/navigation";
-import { Listing, Reservation } from "@prisma/client";
 
-import { SafeUser, SafeListing } from "@/app/types";
+import { SafeUser, SafeListing, SafeReservation } from "@/app/types";
 import useCountries from "@/app/hooks/useCountries";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { format } from 'date-fns';
@@ -11,15 +10,18 @@ import Image from "next/image";
 import HeartButton from "../HeartButton";
 import Button from "../Button";
 import Avatar from "../Avatar";
+import { BsStars } from "react-icons/bs";
 
 interface ListingCardProps {
     data: SafeListing;
-    reservation?: Reservation;
+    reservation?: SafeReservation;
     onAction?: (id: string) => void;
     disabled?: boolean;
     actionLabel?: string;
     actionId?: string;
     currentUser?: SafeUser | null;
+    newest?: boolean;
+    userImage?: string | '';
 }
 
 const ListingCard : React.FC<ListingCardProps> = ({
@@ -29,7 +31,9 @@ const ListingCard : React.FC<ListingCardProps> = ({
     disabled,
     actionLabel,
     actionId = "",
-    currentUser
+    currentUser,
+    newest,
+    userImage
 }) => {
     const router = useRouter();
     const { getByValue } = useCountries();
@@ -65,7 +69,7 @@ const ListingCard : React.FC<ListingCardProps> = ({
             className="
                col-span-1
                cursor-pointer
-               group 
+               group
             "
         >
             <div
@@ -97,25 +101,34 @@ const ListingCard : React.FC<ListingCardProps> = ({
                             transition
                         "
                     />
-                    <div className="absolute top-3 right-3">
+                    <div className="absolute top-4 right-4">
                         <HeartButton
                             listingId={data.id}
                             currentUser={currentUser}
                         />
                     </div>
-                    {/* <div className="asbolute bottom-3 left-3 text-red">
+                    <div className="absolute bottom-4 left-4 bg-gray-100 px-3 py-4 rounded-tl-[2px] rounded-bl-[2px] border-t-white rounded-tr-lg rounded-br-lg">
+                        <div className="absolute top-0 w-[1px] h-full bg-gray-400 left-1"></div>
                         <Avatar
-                            src={data.imageSrc}
+                            large
+                            border
+                            src={userImage}
                         />
-                    </div> */}
+                    </div>
                 </div>
                 <div
                     className="
                         font-semibold
                         text-lg
+                        w-full
+                        flex
+                        flex-row
+                        items-center
+                        gap-3
+                        whitespace-nowrap
                     "
                 >   
-                    {location?.region}, {location?.label}
+                    {location?.region}, {location?.label} {newest && (<div className="text-sm font-semibold text-rose-500"><BsStars /></div>)} 
                 </div>
                 <div
                     className="

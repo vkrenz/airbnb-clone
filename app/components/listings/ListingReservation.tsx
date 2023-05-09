@@ -42,6 +42,7 @@ const ListingReservation : React.FC<ListingReservationProps> = ({
                 overflow-hidden
                 drop-shadow-xl
                 p-6
+                min-w-xl
             "
         >
             <div className="flex flex-row items-center gap-1 p-4">

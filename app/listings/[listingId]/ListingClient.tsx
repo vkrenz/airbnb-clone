@@ -105,9 +105,7 @@ const ListingClient : React.FC<ListingClientProps> = ({
             toast.success('Listing reserved! 🛫');
             setDateRange(initialDateRange);
 
-            /** @todo: Redirect to '/trips' */
-
-            router.refresh();
+            router.push('/trips');
         })
         .catch(err => {
             toast.error(err.message);
@@ -142,18 +140,9 @@ const ListingClient : React.FC<ListingClientProps> = ({
         return categories.find(category => category.label === listing.category);
     }, [listing.category]);
 
-    const getFirstName = (name: string | any): string | any => {
-        if (!name) return null;
-
-        const names = name.split(" ");
-        return names[0];
-    }
-
-    const firstName = getFirstName(listing.user.name);
-
     useEffect(() => {
         document.title=`${listing.title}, ${listing.locationValue}`;
-    }, [listing.title]);
+    }, [listing.title, listing.locationValue]);
 
     return (
         <div>
@@ -208,7 +197,7 @@ const ListingClient : React.FC<ListingClientProps> = ({
                                 />
                                 <div className="mt-4 border border-neutral-300 rounded-xl p-6 flex flex-row items-center justify-between">
                                     <div className="font-light">
-                                        <strong className="font-semibold">This is a rare find.</strong> {firstName}'s place on Airbnb is usually fully booked.
+                                        <strong className="font-semibold">This is a rare find.</strong> {listing.user.name?.split(' ')[0]}'s place on Airbnb is usually fully booked.
                                     </div>
                                     <IoDiamondOutline className="text-rose-500 ml-4" size={50} />
                                 </div>

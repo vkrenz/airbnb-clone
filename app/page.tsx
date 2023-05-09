@@ -1,5 +1,6 @@
 import getCurrentUser from "./actions/getCurrentUser";
 import getListings from "./actions/getListings";
+import getUserImageById from "./actions/getUserImageById";
 
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
@@ -9,6 +10,7 @@ import ListingCard from "./components/listings/ListingCard";
 export default async function Home() {
   const listings = await getListings();
   const currentUser = await getCurrentUser();
+  let listingCards = [];
 
   if (listings.length === 0) {
     return (
@@ -18,12 +20,26 @@ export default async function Home() {
     )
   }
 
+  for (const listing of listings) {
+    const userImage = await getUserImageById({ userId: listing.userId });
+
+    listingCards.push(
+      <ListingCard
+        currentUser={currentUser}
+        key={listing.id}
+        data={listing}
+        userImage={userImage || ''}
+      />
+    );
+  }
+
   return (
     <ClientOnly>
       <Container>
         <div
           className="
-            pt-24
+            mt-8
+            pt-20
             grid
             grid-cols-1
             sm:grid-cols-2
@@ -34,7 +50,7 @@ export default async function Home() {
             gap-8
           "
         >
-          {listings.map((listing) => {
+          {/* {listings.map((listing) => {
             return (
               <ListingCard
                 currentUser={currentUser}
@@ -42,7 +58,8 @@ export default async function Home() {
                 data={listing}
               />
             )
-          })}
+          })} */}
+          {listingCards}
         </div>
       </Container>
     </ClientOnly>

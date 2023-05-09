@@ -10,12 +10,16 @@ interface CategoryBoxProps {
     icon: IconType;
     label: string;
     selected?: boolean;
+    firstCategory?: boolean;
+    lastCategory?: boolean;
 }
 
 const CategoryBox : React.FC<CategoryBoxProps> = ({
     icon: Icon,
     label,
-    selected
+    selected,
+    firstCategory,
+    lastCategory
 }) => {
     const router = useRouter();
     const params = useSearchParams();
@@ -52,9 +56,12 @@ const CategoryBox : React.FC<CategoryBoxProps> = ({
                 flex-col
                 items-center
                 justify-center
-                mx-6
+                px-6
+                ${firstCategory && !lastCategory ? 'pl-0' : ''}
+                ${!firstCategory && lastCategory ? 'pr-0' : ''}
                 pb-3
                 mt-4
+                mb-4
                 border-b-2
                 hover:text-neutral-800
                 md:hover:border-b-neutral-300

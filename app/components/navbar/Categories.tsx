@@ -162,7 +162,6 @@ const Categories = () => {
                     items-center
                     justify-between
                     overflow-x-auto
-                    scrollbar-hide
                 "
             >
                 {/* {showRightScroll && (
@@ -180,12 +179,14 @@ const Categories = () => {
                         </div>
                     </div>
                 )} */}
-                {categories.map(item => (
+                {categories.map((item, index) => (
                     <CategoryBox
                         key={item.label}
                         label={item.label}
                         selected={category === item.label}
                         icon={item.icon}
+                        firstCategory={index === 0}
+                        lastCategory={index === categories.length - 1}
                     />
                 ))}
             </div>
