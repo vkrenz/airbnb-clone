@@ -3,7 +3,7 @@
 import Container from "../Container";
 
 import { TbBeach, TbMountain, TbPool } from 'react-icons/tb';
-import { GiWindmill, GiIsland, GiBoatFishing, GiCastle, GiForestCamp, GiCaveEntrance, GiCactus, GiBarn, GiJungle, GiPaintBrush, GiFlowerPot } from 'react-icons/gi'
+import { GiWindmill, GiIsland, GiBoatFishing, GiCastle, GiForestCamp, GiCaveEntrance, GiCactus, GiBarn, GiJungle, GiTreehouse, GiFlowerPot } from 'react-icons/gi'
 import { MdOutlineVilla } from 'react-icons/md'
 import { FaLandmark, FaSkiing } from 'react-icons/fa';
 import { BsSnow } from 'react-icons/bs';
@@ -11,6 +11,9 @@ import { IoDiamond, IoHeartSharp } from 'react-icons/io5';
 
 import CategoryBox from '../CategoryBox';
 import { useSearchParams, usePathname } from "next/navigation";
+// import { useState, useRef, useEffect } from "react";
+// import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
+// import { IoMdSwitch } from "react-icons/io";
 
 
 export const categories = [
@@ -105,17 +108,44 @@ export const categories = [
         description: 'Stay in some of the world\'s most famous historic sites and monuments.',
     },
     {
+        label: 'Treehouse',
+        icon: GiTreehouse,
+        description: 'Experience a unique and cozy getaway in a treehouse surrounded by nature.'
+    },
+    {
         label: 'Lux',
         icon: IoDiamond,
         description: 'Indulge in opulent and extravagant homes and villas, with all the amenities of a five-star hotel.'
     },
 ]
 
-
 const Categories = () => {
     const params = useSearchParams();
     const category = params?.get('category');
     const pathname = usePathname();
+
+    // const [showRightScroll, setShowRightScroll] = useState(false);
+    // const containerRef = useRef<HTMLDivElement | null>(null);
+
+    // useEffect(() => {
+    //     const container = containerRef.current;
+
+    //     if (container) {
+    //         setShowRightScroll(container.scrollWidth > container.clientWidth)
+    //     }
+    // }, []);
+
+    // const handleRightScroll = () => {
+    //     const container = containerRef.current;
+
+    //     if (container) {
+    //         container.scrollBy({
+    //             left: container.clientWidth,
+    //             behavior: "smooth",
+    //         });
+    //     }
+    // };
+    
 
     const isMainPage = pathname === '/';
 
@@ -124,6 +154,7 @@ const Categories = () => {
     return (
         <Container>
             <div 
+                // ref={containerRef}
                 className="
                     pt-4
                     flex
@@ -131,8 +162,24 @@ const Categories = () => {
                     items-center
                     justify-between
                     overflow-x-auto
+                    scrollbar-hide
                 "
             >
+                {/* {showRightScroll && (
+                    <div className="w-[220px] h-1/2 flex flex-row items-center justify-end gap-4 absolute right-[80px] bg-gradient-to-r from-transparent from-10% via-white via-30% to-white to-90%">
+                        <button
+                            className="bg-white border rounded-full shadow-md p-2 text-neutral-800"
+                            onClick={handleRightScroll}
+                        >
+                            <AiOutlineRight />
+                        </button>
+                        <div className="text-neutral-800 px-3 py-4 border rounded-xl bg-white">
+                            <div className="flex flex-row items-center gap-4">
+                            <IoMdSwitch /> Filters
+                            </div>
+                        </div>
+                    </div>
+                )} */}
                 {categories.map(item => (
                     <CategoryBox
                         key={item.label}

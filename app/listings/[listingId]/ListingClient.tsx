@@ -173,7 +173,6 @@ const ListingClient : React.FC<ListingClientProps> = ({
                                 grid-col-1
                                 md:grid-cols-7
                                 md:gap-10
-                                mt-6
                             "
                         >
                             <ListingInfo
