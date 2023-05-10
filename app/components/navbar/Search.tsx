@@ -16,6 +16,7 @@ const Search = () => {
                 hover:shadow-md
                 hover:drop-shadow-0
                 hover:transition
+                hover:ease-in-out
                 transition
                 cursor-pointer
                 lg:absolute

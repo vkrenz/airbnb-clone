@@ -2,15 +2,17 @@
 
 import Container from "../Container";
 
-import { TbBeach, TbMountain, TbPool } from 'react-icons/tb';
-import { GiWindmill, GiIsland, GiBoatFishing, GiCastle, GiForestCamp, GiCaveEntrance, GiCactus, GiBarn, GiJungle, GiTreehouse, GiFlowerPot } from 'react-icons/gi'
+import { TbBeach, TbMountain, TbPool, TbUfo } from 'react-icons/tb';
+import { GiWindmill, GiIsland, GiCastle, GiForestCamp, GiCaveEntrance, GiCactus, GiBarn, GiJungle, GiTreehouse, GiFlowerPot } from 'react-icons/gi'
 import { MdOutlineVilla } from 'react-icons/md'
 import { FaLandmark, FaSkiing } from 'react-icons/fa';
-import { BsSnow } from 'react-icons/bs';
+import { BsSnow, BsWater } from 'react-icons/bs';
+import { HiOutlineHomeModern } from 'react-icons/hi2';
 import { IoDiamond, IoHeartSharp } from 'react-icons/io5';
 
 import CategoryBox from '../CategoryBox';
 import { useSearchParams, usePathname } from "next/navigation";
+import { BiMap } from "react-icons/bi";
 // import { useState, useRef, useEffect } from "react";
 // import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 // import { IoMdSwitch } from "react-icons/io";
@@ -49,9 +51,24 @@ export const categories = [
     },
     {
         label: 'Lakefront',
-        icon: GiBoatFishing,
+        icon: BsWater,
         description: 'Enjoy lakefront homes with beautiful views and water activities like fishing and boating.'
     },
+    {
+        label: 'Amazing view',
+        icon: BiMap,
+        description: 'Experience stunning vistas and breathtaking panoramas from your window or balcony.',
+    },
+    {
+        label: "Tiny home",
+        icon: HiOutlineHomeModern,
+        description: "Experience the cozy and minimalist lifestyle in a compact home, often with unique and space-saving designs."
+    },
+    {
+        label: "OMG!",
+        icon: TbUfo,
+        description: "Unleash your inner weirdo and stay in a place that's as unique as you are! From treehouses to underground bunkers, these listings are anything but ordinary."
+      },
     {
         label: 'Skiing',
         icon: FaSkiing,
@@ -162,6 +179,7 @@ const Categories = () => {
                     items-center
                     justify-between
                     overflow-x-auto
+                    scrollbar-hide
                 "
             >
                 {/* {showRightScroll && (

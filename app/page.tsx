@@ -29,6 +29,7 @@ export default async function Home() {
         key={listing.id}
         data={listing}
         userImage={userImage || ''}
+        showAvatar
       />
     );
   }
@@ -38,8 +39,7 @@ export default async function Home() {
       <Container>
         <div
           className="
-            mt-8
-            pt-20
+            pt-24
             grid
             grid-cols-1
             sm:grid-cols-2

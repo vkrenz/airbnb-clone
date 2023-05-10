@@ -22,6 +22,7 @@ interface ListingCardProps {
     currentUser?: SafeUser | null;
     newest?: boolean;
     userImage?: string | '';
+    showAvatar?: boolean;
 }
 
 const ListingCard : React.FC<ListingCardProps> = ({
@@ -33,7 +34,8 @@ const ListingCard : React.FC<ListingCardProps> = ({
     actionId = "",
     currentUser,
     newest,
-    userImage
+    userImage,
+    showAvatar
 }) => {
     const router = useRouter();
     const { getByValue } = useCountries();
@@ -107,14 +109,16 @@ const ListingCard : React.FC<ListingCardProps> = ({
                             currentUser={currentUser}
                         />
                     </div>
-                    <div className="absolute bottom-4 left-4 bg-gray-100 px-3 py-4 rounded-tl-[2px] rounded-bl-[2px] border-t-white rounded-tr-lg rounded-br-lg">
-                        <div className="absolute top-0 w-[1px] h-full bg-gray-400 left-1"></div>
-                        <Avatar
-                            large
-                            border
-                            src={userImage}
-                        />
-                    </div>
+                    {showAvatar && (
+                        <div className="absolute bottom-4 left-4 bg-gray-100 px-3 py-4 rounded-tl-[2px] rounded-bl-[2px] border-t-white rounded-tr-lg rounded-br-lg">
+                            <div className="absolute top-0 w-[1px] h-full bg-gray-400 left-1"></div>
+                            <Avatar
+                                large
+                                border
+                                src={userImage}
+                            />
+                        </div>
+                    )}
                 </div>
                 <div
                     className="

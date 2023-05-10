@@ -56,9 +56,9 @@ const CategoryBox : React.FC<CategoryBoxProps> = ({
                 flex-col
                 items-center
                 justify-center
-                px-6
-                ${firstCategory && !lastCategory ? 'pl-0' : ''}
-                ${!firstCategory && lastCategory ? 'pr-0' : ''}
+                mx-6
+                ${firstCategory && !lastCategory ? 'ml-0' : ''}
+                ${!firstCategory && lastCategory ? 'mr-0' : ''}
                 pb-3
                 mt-4
                 mb-4
@@ -69,12 +69,13 @@ const CategoryBox : React.FC<CategoryBoxProps> = ({
                 duration-150
                 ease-in-out
                 cursor-pointer
-                ${selected ? 'md:border-b-neutral-800' : 'border-transparent'}
+                ${selected ? 'md:border-b-neutral-800 border-b-[3px]' : 'border-transparent'}
                 ${selected ? 'text-neutral-800' : 'text-neutral-500'}
+                whitespace-nowrap
             `}
         >   
             <Icon size={24} />
-            <div className="font-bold text-xs">
+            <div className="font-bold text-xs mt-3">
                 {label}
             </div>
         </div>

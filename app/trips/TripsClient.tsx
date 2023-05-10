@@ -25,6 +25,7 @@ const TripsClient : React.FC<TripsClientProps> = ({
 }) => {
     const router = useRouter();
     const [deletingId, setDeletingId] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
 
     const onCancel = useCallback((id: string) => {
         setDeletingId(id);
