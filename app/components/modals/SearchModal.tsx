@@ -12,6 +12,7 @@ import { CountrySelectValue } from "../inputs/CountrySelect";
 
 import useSearchModal from "@/app/hooks/useSearchModal";
 import dynamic from "next/dynamic";
+import Heading from "../Heading";
 
 enum STEPS {
     LOCATION = 0,
@@ -102,8 +103,29 @@ const SearchModal = () => {
     }, [step]);
 
     let bodyContent = (
-        
+        <Heading
+            title="Location"
+            subtitle="Pick a location"
+        />
     )
+
+    if (step === STEPS.DATE) {
+        let bodyContent = (
+            <Heading
+                title=""
+                subtitle=""
+            />
+        )
+    }
+
+    if (step === STEPS.INFO) {
+        let bodyContent = (
+            <Heading
+                title=""
+                subtitle=""
+            />
+        )
+    }
 
     return (
         <Modal
@@ -112,6 +134,7 @@ const SearchModal = () => {
             onSubmit={searchModal.onOpen}
             title="Filters"
             actionLabel="Search"
+            body={bodyContent}
         />
     );
 }
