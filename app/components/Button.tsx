@@ -35,7 +35,7 @@ const Button : React.FC<ButtonProps> = ({
                 ${outline ? 'bg-white' : 'bg-gradient-to-r from-rose-500 to-pink-500'}
                 ${outline ? 'border-black' : 'border-rose-500'}
                 ${outline ? 'text-black' : 'text-white'}
-                ${small ? 'py-1' : 'py-3'}
+                ${small ? 'py-2' : 'py-3'}
                 ${small ? 'text-sm' : 'text-md'}
                 ${small ? 'font-light' : 'font-semibold'}
             `}

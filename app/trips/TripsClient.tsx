@@ -12,8 +12,6 @@ import Heading from "../components/Heading";
 import { SafeReservation, SafeUser } from "../types"
 import ListingCard from "../components/listings/ListingCard";
 
-import getUserImageById from "../actions/getUserImageById";
-
 interface TripsClientProps {
     reservations: SafeReservation[];
     currentUser?: SafeUser | null;
@@ -25,7 +23,6 @@ const TripsClient : React.FC<TripsClientProps> = ({
 }) => {
     const router = useRouter();
     const [deletingId, setDeletingId] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
 
     const onCancel = useCallback((id: string) => {
         setDeletingId(id);

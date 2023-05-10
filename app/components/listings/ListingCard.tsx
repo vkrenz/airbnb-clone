@@ -157,6 +157,7 @@ const ListingCard : React.FC<ListingCardProps> = ({
                         <div className="font-light">night</div>
                     )}
                 </div>
+                {/* <hr className="my-2" /> */}
                 {onAction && actionLabel && (
                     <Button
                         disabled={disabled}
