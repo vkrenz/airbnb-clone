@@ -7,6 +7,8 @@ import Search from "./Search";
 import UserMenu from "./UserMenu";
 import { SafeUser } from '@/app/types';
 
+// import { useState, useEffect } from 'react';
+
 interface NavbarProps {
     currentUser?: SafeUser | null;
 }
@@ -16,6 +18,16 @@ const Navbar : React.FC<NavbarProps> = ({
 }) => {
     console.log({currentUser});
 
+    // const [isOnListingsPage, setIsOnListingsPage] = useState(false);
+
+    // useEffect(() => {
+    //   if (window.location.href.includes('/listings/')) {
+    //     setIsOnListingsPage(true);
+    //   } else {
+    //     setIsOnListingsPage(false);
+    //   }
+    // }, []);
+
     return (
         <div className="fixed w-full bg-white z-10">
             <div
@@ -24,6 +36,7 @@ const Navbar : React.FC<NavbarProps> = ({
                     border-b-[1px]
                 "
             >
+                {/* <Container navbarListings={isOnListingsPage}> */}
                 <Container>
                     <div
                         className="
