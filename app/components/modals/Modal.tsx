@@ -83,8 +83,12 @@ const Modal : React.FC<ModalProps> = ({
                     outline-none
                     focus:outline-none
                     bg-neutral-800/70
+                    backdrop-filter
+                    backdrop-blur-sm
+
                 "
             >
+                {/* Modal */}
                 <div
                     className="
                         relative

@@ -112,8 +112,8 @@ const SearchModal = () => {
     if (step === STEPS.DATE) {
         let bodyContent = (
             <Heading
-                title=""
-                subtitle=""
+                title="Date"
+                subtitle="Choose the date range"
             />
         )
     }
@@ -121,8 +121,8 @@ const SearchModal = () => {
     if (step === STEPS.INFO) {
         let bodyContent = (
             <Heading
-                title=""
-                subtitle=""
+                title="Info"
+                subtitle="Select the info"
             />
         )
     }
@@ -133,7 +133,7 @@ const SearchModal = () => {
             onClose={searchModal.onClose}
             onSubmit={searchModal.onOpen}
             title="Filters"
-            actionLabel="Search"
+            actionLabel={actionLabel}
             body={bodyContent}
         />
     );
