@@ -1,17 +1,18 @@
 'use client';
 
 import Image from "next/image";
-
 interface AvatarProps {
     src: string | null | undefined;
     large?: boolean;
     border?: boolean;
+    userId?: string;
 }
 
 const Avatar : React.FC<AvatarProps> = ({
     src,
     large,
-    border
+    border,
+    userId
 }) => {
     return (
         <Image 

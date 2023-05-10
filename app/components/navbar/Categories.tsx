@@ -4,7 +4,7 @@ import Container from "../Container";
 
 import { TbBeach, TbMountain, TbPool, TbUfo } from 'react-icons/tb';
 import { GiWindmill, GiIsland, GiCastle, GiForestCamp, GiCaveEntrance, GiCactus, GiBarn, GiJungle, GiTreehouse, GiFlowerPot } from 'react-icons/gi'
-import { MdOutlineVilla } from 'react-icons/md'
+import { MdOutlineCabin, MdOutlineVilla } from 'react-icons/md'
 import { FaLandmark, FaSkiing } from 'react-icons/fa';
 import { BsSnow, BsWater } from 'react-icons/bs';
 import { HiOutlineHomeModern } from 'react-icons/hi2';
@@ -30,6 +30,11 @@ export const categories = [
         description: 'Experience a simpler way of life with cozy cabins and homes that evoke a bygone era.'
     },
     {
+        label: 'Cabin',
+        icon: MdOutlineCabin,
+        description: 'Experience rustic living in a cozy cabin. Perfect for a romantic getaway or a peaceful retreat in nature.'
+    },
+    {
         label: 'Modern',
         icon: MdOutlineVilla,
         description: 'Stay in sleek, contemporary homes that offer style and sophistication.'
@@ -53,11 +58,6 @@ export const categories = [
         label: 'Lakefront',
         icon: BsWater,
         description: 'Enjoy lakefront homes with beautiful views and water activities like fishing and boating.'
-    },
-    {
-        label: 'Amazing view',
-        icon: BiMap,
-        description: 'Experience stunning vistas and breathtaking panoramas from your window or balcony.',
     },
     {
         label: "Tiny home",
