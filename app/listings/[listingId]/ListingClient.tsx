@@ -141,7 +141,7 @@ const ListingClient : React.FC<ListingClientProps> = ({
     }, [listing.category]);
 
     useEffect(() => {
-        document.title=`${listing.title}, ${listing.locationValue}`;
+        document.title=`${listing.title} - Houses for Rent in ${listing.locationValue} - Airbnb`;
     }, [listing.title, listing.locationValue]);
 
     return (

@@ -3,7 +3,7 @@
 import Container from "../Container";
 
 import { TbBeach, TbMountain, TbPool, TbUfo } from 'react-icons/tb';
-import { GiWindmill, GiIsland, GiCastle, GiForestCamp, GiCaveEntrance, GiCactus, GiBarn, GiJungle, GiTreehouse, GiFlowerPot } from 'react-icons/gi'
+import { GiWindmill, GiIsland, GiCastle, GiForestCamp, GiCaveEntrance, GiCactus, GiBarn, GiJungle, GiTreehouse, GiFlowerPot, GiPalmTree } from 'react-icons/gi'
 import { MdOutlineCabin, MdOutlineVilla } from 'react-icons/md'
 import { FaLandmark, FaSkiing } from 'react-icons/fa';
 import { BsSnow, BsWater } from 'react-icons/bs';
@@ -48,6 +48,11 @@ export const categories = [
         label: 'Pools',
         icon: TbPool,
         description: 'Relax and unwind in homes with private pools, hot tubs, and luxurious amenities.'
+    },
+    {
+        label: 'Tropical',
+        icon: GiPalmTree,
+        description: 'Discover our Tropical homes, a perfect escape to paradise. Relax and explore with stunning views, beaches, and exotic nature.'
     },
     {
         label: 'Island',
