@@ -3,16 +3,18 @@
 import Container from "../Container";
 
 import { TbBeach, TbMountain, TbPool, TbUfo } from 'react-icons/tb';
-import { GiWindmill, GiIsland, GiCastle, GiForestCamp, GiCaveEntrance, GiCactus, GiBarn, GiJungle, GiTreehouse, GiFlowerPot, GiPalmTree } from 'react-icons/gi'
-import { MdOutlineCabin, MdOutlineVilla } from 'react-icons/md'
+import { GiWindmill, GiIsland, GiCastle, GiForestCamp, GiMountainCave, GiCactus, GiBarn, GiJungle, GiTreehouse, GiFlowerPot } from 'react-icons/gi'
+import { MdOutlineCabin, MdOutlineDiamond, MdOutlineVilla } from 'react-icons/md'
 import { FaLandmark, FaSkiing } from 'react-icons/fa';
 import { BsSnow, BsWater } from 'react-icons/bs';
 import { HiOutlineHomeModern } from 'react-icons/hi2';
-import { IoDiamond, IoHeartSharp } from 'react-icons/io5';
+import { AiOutlineHeart } from "react-icons/ai";
+import { FiChevronRight } from "react-icons/fi";
 
 import CategoryBox from '../CategoryBox';
 import { useSearchParams, usePathname } from "next/navigation";
-import { BiMap } from "react-icons/bi";
+import { IoMdSwitch } from "react-icons/io";
+import useSearchModal from "@/app/hooks/useSearchModal";
 // import { useState, useRef, useEffect } from "react";
 // import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 // import { IoMdSwitch } from "react-icons/io";
@@ -51,13 +53,8 @@ export const categories = [
     },
     {
         label: 'Tropical',
-        icon: GiPalmTree,
-        description: 'Discover our Tropical homes, a perfect escape to paradise. Relax and explore with stunning views, beaches, and exotic nature.'
-    },
-    {
-        label: 'Island',
         icon: GiIsland,
-        description: 'Discover idyllic islands with crystal-clear waters, palm trees, and white sand beaches.'
+        description: 'Discover our Tropical homes, a perfect escape to paradise. Relax and explore with stunning views, beaches, and exotic nature.'
     },
     {
         label: 'Lakefront',
@@ -96,7 +93,7 @@ export const categories = [
     },
     {
         label: 'Caves',
-        icon: GiCaveEntrance,
+        icon: GiMountainCave,
         description: 'Stay in unique and unusual homes carved into cliffs and nestled in natural caves.'
     },
     {
@@ -116,7 +113,7 @@ export const categories = [
     },
     {
         label: 'Romantic',
-        icon: IoHeartSharp,
+        icon: AiOutlineHeart,
         description: 'Experience the ultimate romantic getaway in some of the world\'s most beautiful destinations.',
     },
     {
@@ -136,7 +133,7 @@ export const categories = [
     },
     {
         label: 'Lux',
-        icon: IoDiamond,
+        icon: MdOutlineDiamond,
         description: 'Indulge in opulent and extravagant homes and villas, with all the amenities of a five-star hotel.'
     },
 ]
@@ -145,6 +142,7 @@ const Categories = () => {
     const params = useSearchParams();
     const category = params?.get('category');
     const pathname = usePathname();
+    const searchModal = useSearchModal();
 
     // const [showRightScroll, setShowRightScroll] = useState(false);
     // const containerRef = useRef<HTMLDivElement | null>(null);
@@ -174,17 +172,18 @@ const Categories = () => {
     if (!isMainPage) return null;
 
     return (
-        <Container>
+        <Container categoryContainer>
             <div 
                 // ref={containerRef}
                 className="
-                    pt-4
+                    pt-2
                     flex
                     flex-row
+                    gap-4
                     items-center
                     justify-between
                     overflow-x-auto
-                    scrollbar-hide
+                    max-w-[1230px]
                 "
             >
                 {/* {showRightScroll && (
@@ -213,6 +212,29 @@ const Categories = () => {
                     />
                 ))}
             </div>
+            <div 
+                onClick={searchModal.onOpen}
+                className="
+                        p-3 border 
+                        border-neutral-400 
+                        text-semibold 
+                        rounded-xl 
+                        flex 
+                        flex-row 
+                        items-center 
+                        gap-2 
+                        font-bold 
+                        text-xs 
+                        cursor-pointer 
+                        hover:shadow-lg 
+                        transition
+                    "
+                >
+                <IoMdSwitch size={21}/> Filters
+            </div>
+            {/* <div className="p-1 rounded-full border border-neutral-400 cursor-pointer">
+                <FiChevronRight size={21}/>
+            </div> */}
         </Container>
     );
 }

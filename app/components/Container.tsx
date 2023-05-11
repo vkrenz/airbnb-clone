@@ -3,16 +3,18 @@
 interface ContainerProps {
     children: React.ReactNode;
     navbarListings?: boolean;
+    categoryContainer?: boolean;
 }
 
 const Container : React.FC<ContainerProps> = ({
     children,
-    navbarListings = false,
+    navbarListings,
+    categoryContainer
 }) => {
     return (
         <div
             className={`
-                ${navbarListings ? 'max-w-[1190px]' : 'max-w-[2520px]'}
+                ${categoryContainer ? 'flex flex-row items-center justify-between' : ''}
                 mx-auto
                 xl:px-20
                 md:px-10
