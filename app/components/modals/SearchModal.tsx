@@ -8,11 +8,12 @@ import { useCallback, useMemo, useState } from "react";
 import { Range } from "react-date-range";
 
 import Modal from "./Modal";
-import { CountrySelectValue } from "../inputs/CountrySelect";
+import CountrySelect, { CountrySelectValue } from "../inputs/CountrySelect";
 
 import useSearchModal from "@/app/hooks/useSearchModal";
 import dynamic from "next/dynamic";
 import Heading from "../Heading";
+import Calendar from "../inputs/Calendar";
 
 enum STEPS {
     LOCATION = 0,
@@ -103,18 +104,32 @@ const SearchModal = () => {
     }, [step]);
 
     let bodyContent = (
-        <Heading
-            title="Location"
-            subtitle="Pick a location"
-        />
+        <div className="flex flex-col gap-8">
+            <Heading
+                title="Where do you wanna go?"
+                subtitle="Find the perfect location!"
+            />
+            <CountrySelect
+                value={location}
+                onChange={val => setLocation(val as CountrySelectValue)}
+            />
+            <hr />
+            <Map center={location?.latlng} />
+        </div>
     )
 
     if (step === STEPS.DATE) {
         let bodyContent = (
-            <Heading
-                title="Date"
-                subtitle="Choose the date range"
-            />
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="When do you plan to go?"
+                    subtitle="Make sure everyone is free!"
+                />
+                <Calendar
+                    value={dateRange}
+                    onChange={val => setDateRange(val.selection)}
+                />
+            </div>
         )
     }
 
@@ -131,7 +146,7 @@ const SearchModal = () => {
         <Modal
             isOpen={searchModal.isOpen}
             onClose={searchModal.onClose}
-            onSubmit={searchModal.onOpen}
+            onSubmit={onSubmit}
             title="Filters"
             actionLabel={actionLabel}
             body={bodyContent}

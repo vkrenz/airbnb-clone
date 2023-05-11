@@ -183,7 +183,7 @@ const Categories = () => {
                     items-center
                     justify-between
                     overflow-x-auto
-                    max-w-[1230px]
+                    w-full
                 "
             >
                 {/* {showRightScroll && (
@@ -215,7 +215,8 @@ const Categories = () => {
             <div 
                 onClick={searchModal.onOpen}
                 className="
-                        p-3 border 
+                        p-3 
+                        border 
                         border-neutral-400 
                         text-semibold 
                         rounded-xl 
@@ -226,8 +227,11 @@ const Categories = () => {
                         font-bold 
                         text-xs 
                         cursor-pointer 
-                        hover:shadow-lg 
+                        hover:shadow-md
                         transition
+                        ease-in-out
+                        duration-150
+                        ml-16
                     "
                 >
                 <IoMdSwitch size={21}/> Filters
