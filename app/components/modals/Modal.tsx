@@ -71,7 +71,7 @@ const Modal : React.FC<ModalProps> = ({
         <>
             {/* Dark Overlay */}
             <div
-                className="
+                className={`
                     flex
                     justify-center
                     items-center
@@ -85,8 +85,10 @@ const Modal : React.FC<ModalProps> = ({
                     bg-neutral-800/70
                     backdrop-filter
                     backdrop-blur-sm
-
-                "
+                    duration-300
+                    transition
+                    ${showModal ? 'opacity-100' : 'opacity-0'}
+                `}
             >
                 {/* Modal */}
                 <div
