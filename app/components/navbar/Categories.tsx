@@ -219,12 +219,13 @@ const Categories = () => {
             <div 
                 onClick={searchModal.onOpen}
                 className="
+                        hidden
+                        sm:flex
                         p-3 
                         border 
                         border-neutral-400 
                         text-semibold 
                         rounded-xl 
-                        flex 
                         flex-row 
                         items-center 
                         gap-2 
