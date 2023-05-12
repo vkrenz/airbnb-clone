@@ -1,20 +1,20 @@
 'use client'
 
 import queryString from "query-string";
-import { formatISO } from "date-fns";
-
-import { useRouter, useSearchParams } from "next/navigation";
+import dynamic from "next/dynamic";
 import { useCallback, useMemo, useState } from "react";
 import { Range } from "react-date-range";
-
-import Modal from "./Modal";
-import CountrySelect, { CountrySelectValue } from "../inputs/CountrySelect";
-import Heading from "../Heading";
-import Calendar from "../inputs/Calendar";
-import Counter from "../inputs/Counter";
+import { formatISO } from "date-fns";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import useSearchModal from "@/app/hooks/useSearchModal";
-import dynamic from "next/dynamic";
+
+import Modal from "./Modal";
+import Calendar from "../inputs/Calendar";
+import Counter from "../inputs/Counter";
+import CountrySelect, { CountrySelectValue } from "../inputs/CountrySelect";
+import Heading from "../Heading";
+
 
 enum STEPS {
     LOCATION = 0,
@@ -23,7 +23,13 @@ enum STEPS {
 }
 
 const SearchModal = () => {
+    const router = useRouter();
+    const searchModal = useSearchModal();
+    const params = useSearchParams();
+
     const [step, setStep] = useState(STEPS.LOCATION);
+
+    const [location, setLocation] = useState<CountrySelectValue>();
     const [guestCount, setGuestCount] = useState(1);
     const [roomCount, setRoomCount] = useState(1);
     const [bathroomCount, setbathroomCount] = useState(1);
@@ -32,7 +38,7 @@ const SearchModal = () => {
         endDate: new Date(),
         key: 'selection'
     });
-    const [location, setLocation] = useState<CountrySelectValue>();
+    
     const Map = useMemo(() => dynamic(() => import('../Map'), {
         ssr: false,
     }), [location]);
@@ -45,11 +51,6 @@ const SearchModal = () => {
         setStep(val => val + 1);
     }, []);
 
-    const router = useRouter();
-
-    const params = useSearchParams();
-
-    const searchModal = useSearchModal();
 
     const onSubmit = useCallback(async () => {
         if (step !== STEPS.INFO) return onNext();
