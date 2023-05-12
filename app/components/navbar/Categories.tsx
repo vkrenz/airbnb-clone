@@ -3,13 +3,12 @@
 import Container from "../Container";
 
 import { TbBeach, TbMountain, TbPool, TbUfo } from 'react-icons/tb';
-import { GiWindmill, GiIsland, GiCastle, GiForestCamp, GiMountainCave, GiCactus, GiBarn, GiJungle, GiTreehouse, GiFlowerPot } from 'react-icons/gi'
+import { GiWindmill, GiIsland, GiCastle, GiForestCamp, GiMountainCave, GiCactus, GiBarn, GiJungle, GiTreehouse, GiFlowerPot, GiFamilyHouse } from 'react-icons/gi'
 import { MdOutlineCabin, MdOutlineDiamond, MdOutlineVilla } from 'react-icons/md'
 import { FaLandmark, FaSkiing } from 'react-icons/fa';
 import { BsSnow, BsWater } from 'react-icons/bs';
 import { HiOutlineHomeModern } from 'react-icons/hi2';
 import { AiOutlineHeart } from "react-icons/ai";
-import { FiChevronRight } from "react-icons/fi";
 
 import CategoryBox from '../CategoryBox';
 import { useSearchParams, usePathname } from "next/navigation";
@@ -77,7 +76,7 @@ export const categories = [
         description: 'Hit the slopes and stay in cozy homes and cabins near popular ski resorts.'
     },
     {
-        label: 'Castles',
+        label: 'Castle',
         icon: GiCastle,
         description: 'Live like royalty in grand castles and chateaux with historic architecture and lavish interiors.'
     },
@@ -105,6 +104,11 @@ export const categories = [
         label: 'Farm',
         icon: GiBarn,
         description: 'Get back to nature with farm stays and rural escapes, surrounded by fields and countryside.'
+    },
+    {
+        label: "Mansion",
+        icon: GiFamilyHouse,
+        description: "Live like royalty in these grand and luxurious estates, complete with lavish amenities and sprawling grounds."
     },
     {
         label: 'Jungle',
@@ -231,7 +235,7 @@ const Categories = () => {
                         transition
                         ease-in-out
                         duration-150
-                        ml-16
+                        ml-14
                     "
                 >
                 <IoMdSwitch size={21}/> Filters

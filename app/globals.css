@@ -33,7 +33,8 @@ body,
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #888;
+  background-color: rgb(220, 220, 220);
+  height: 1px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

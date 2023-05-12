@@ -56,7 +56,7 @@ const CategoryBox : React.FC<CategoryBoxProps> = ({
                 flex-col
                 items-center
                 justify-center
-                mx-6
+                mx-4
                 ${firstCategory && !lastCategory ? 'ml-0' : ''}
                 ${!firstCategory && lastCategory ? 'mr-0' : ''}
                 pb-3

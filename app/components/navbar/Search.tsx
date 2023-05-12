@@ -36,7 +36,7 @@ const Search = () => {
                 diff = 1;
             }
 
-            return `${diff} Days`
+            return `${diff} ${diff > 1 ? 'Days' : 'Day'}`
         }
 
         return 'Any Week';
@@ -44,7 +44,7 @@ const Search = () => {
 
     const guestLabel = useMemo(() => {
         if (guestCount) {
-            return `${guestCount} Guests`;
+            return `${guestCount} ${parseInt(guestCount) > 1 ? 'Guests' : 'Guest'}`;
         }
 
         return 'Add Guests';
