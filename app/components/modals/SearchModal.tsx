@@ -9,11 +9,12 @@ import { Range } from "react-date-range";
 
 import Modal from "./Modal";
 import CountrySelect, { CountrySelectValue } from "../inputs/CountrySelect";
+import Heading from "../Heading";
+import Calendar from "../inputs/Calendar";
+import Counter from "../inputs/Counter";
 
 import useSearchModal from "@/app/hooks/useSearchModal";
 import dynamic from "next/dynamic";
-import Heading from "../Heading";
-import Calendar from "../inputs/Calendar";
 
 enum STEPS {
     LOCATION = 0,
@@ -119,7 +120,7 @@ const SearchModal = () => {
     )
 
     if (step === STEPS.DATE) {
-        let bodyContent = (
+        bodyContent = (
             <div className="flex flex-col gap-8">
                 <Heading
                     title="When do you plan to go?"
@@ -134,11 +135,33 @@ const SearchModal = () => {
     }
 
     if (step === STEPS.INFO) {
-        let bodyContent = (
-            <Heading
-                title="Info"
-                subtitle="Select the info"
-            />
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="More information"
+                    subtitle="Find your perfect place!"
+                />
+                <Counter
+                    title="Guests"
+                    subtitle="How many guests are coming?"
+                    value={guestCount}
+                    onChange={val => setGuestCount(val)}
+                />
+                <hr />
+                <Counter
+                    title="Rooms"
+                    subtitle="How many rooms do you need?"
+                    value={roomCount}
+                    onChange={val => setRoomCount(val)}
+                />
+                <hr />
+                <Counter
+                    title="Bathrooms"
+                    subtitle="How many bathrooms do you need??"
+                    value={bathroomCount}
+                    onChange={val => setbathroomCount(val)}
+                />
+            </div>
         )
     }
 
@@ -149,6 +172,8 @@ const SearchModal = () => {
             onSubmit={onSubmit}
             title="Filters"
             actionLabel={actionLabel}
+            secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
+            secondaryActionLabel={secondaryActionLabel}
             body={bodyContent}
         />
     );
