@@ -197,7 +197,7 @@ const ListingClient : React.FC<ListingClientProps> = ({
                                 />
                                 <div className="mt-4 border border-neutral-300 rounded-xl p-6 flex flex-row items-center justify-between">
                                     <div className="font-light">
-                                        <strong className="font-semibold">This is a rare find.</strong> {listing.user.name?.split(' ')[0]}'s place on Airbnb is usually fully booked.
+                                        <strong className="font-semibold">This is a rare find.</strong> {listing.user.name?.split(' ')[0]}&apos;s place on Airbnb is usually fully booked.
                                     </div>
                                     <IoDiamondOutline className="text-rose-500 ml-4" size={50} />
                                 </div>
