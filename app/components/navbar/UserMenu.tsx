@@ -148,15 +148,15 @@ const UserMenu : React.FC<UserMenuProps> = ({
                                     onClick={rentModal.onOpen}
                                     label="Airbnb your home"
                                 />
-                                <MenuItem
+                                {/* <MenuItem
                                     onClick={() => {}}
                                     label="Account"
-                                />
+                                /> */}
                                 <div className="my-2 bg-neutral-200 w-full h-[1px]" />
-                                <MenuItem
+                                {/* <MenuItem
                                     onClick={() => {}}
                                     label="Help"
-                                />
+                                /> */}
                                 <MenuItem
                                     onClick={() => signOut()}
                                     label="Log Out"
