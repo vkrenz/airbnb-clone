@@ -1,13 +1,11 @@
 'use client'
 
-import router from "next/router";
 import Container from "../Container";
 import Categories from "./Categories";
 import Logo from './Logo'
 import Search from "./Search";
 import UserMenu from "./UserMenu";
 import { SafeUser } from '@/app/types';
-import Image from "next/image";
 
 // import { useState, useEffect } from 'react';
 
@@ -36,6 +34,7 @@ const Navbar : React.FC<NavbarProps> = ({
                 className="
                     py-4
                     border-b-[1px]
+                    max-h-[80px]
                 "
             >
                 {/* <Container navbarListings={isOnListingsPage}> */}
@@ -51,15 +50,7 @@ const Navbar : React.FC<NavbarProps> = ({
                         "
                     >
                         {/* { isSmallScreen ? (<SmallScreenLogo />) : (<BigScreenLogo />) } */}
-                        {/* <Logo /> */}
-                        <Image
-                            onClick={() => router.push('/')} 
-                            alt="Logo"
-                            className="hidden md:block cursor-pointer mr-5 max-h-md"
-                            width="100"
-                            height="100"
-                            src="/images/logo.png"
-                        />
+                        <Logo />
                         <Search />
                         <UserMenu currentUser={currentUser}/>
                     </div>
