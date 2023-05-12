@@ -36,6 +36,8 @@ export default async function getListings( params: IListingsParams ) {
         
         if (bathroomCount) query.bathroomCount = { gte: +bathroomCount };
 
+        if (locationValue) query.locationValue = locationValue;
+
         if (startDate && endDate) {
             query.NOT = {
                 reservations: {
