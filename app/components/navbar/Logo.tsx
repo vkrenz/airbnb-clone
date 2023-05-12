@@ -13,7 +13,7 @@ const Logo = () => {
             className="hidden md:block cursor-pointer mr-5 max-h-md"
             width="100"
             height="100"
-            src="/images/logo.png"
+            src="/images/Logo.png"
         />
     );
 }
