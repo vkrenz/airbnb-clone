@@ -1,3 +1,6 @@
+export const dynamic = 'auto';
+// 'auto' | 'force-dynamic' | 'error' | 'force-static'
+
 import Container from "./components/Container";
 import ListingCard from "./components/listings/ListingCard";
 import EmptyState from "./components/EmptyState";
