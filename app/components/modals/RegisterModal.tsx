@@ -114,12 +114,12 @@ const RegisterModal = () => {
                 icon={AiFillGithub}
                 onClick={() => signIn('github')}
             />
-            <Button 
+            {/* <Button 
                 outline
                 label="Continue with Facebook"
                 icon={AiFillFacebook}
                 onClick={() => signIn('facebook')}
-            />
+            /> */}
             <div
                 className="
                     text-neutral-500

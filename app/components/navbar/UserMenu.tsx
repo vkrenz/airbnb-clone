@@ -178,10 +178,10 @@ const UserMenu : React.FC<UserMenuProps> = ({
                                     onClick={onRent}
                                     label="Airbnb your home"
                                 />
-                                <MenuItem
+                                {/* <MenuItem
                                     onClick={() => {}}
                                     label="Help"
-                                />
+                                /> */}
                             </>
                         )}
                     </div>
