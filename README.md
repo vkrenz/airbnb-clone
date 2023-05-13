@@ -2,8 +2,6 @@
 
 Welcome to the future of web development! This project is a cutting-edge clone of Airbnb, built using Next.js 13 App Router, React, Tailwind CSS, Prisma, MongoDB, and NextAuth in 2023.
 
----
-
 ## 🔧 Built With
 
 - 🔗 [Next.js 13](https://nextjs.org/) - A React framework for building server-side rendered and static web applications.
@@ -21,11 +19,19 @@ Welcome to the future of web development! This project is a cutting-edge clone o
 - 🎉 [React Select](https://react-select.com/) - A flexible and extensible select component for React.
 - 🎭 [React Icons](https://react-icons.github.io/react-icons/) - A collection of customizable icons for React.
 
----
+***
 
-## Features
+## ✨ Key Features
 
-Next.js 13 App Router for server-rendered routing
-* Modern UI with React and Tailwind CSS
-* Robust data management with Prisma and MongoDB
-* Secure authentication with NextAuth
+🏠 Browse and book accommodations
+🏢 List and manage properties for rent
+🔍 Advanced search and filter options
+🗺️ Interactive maps with Leaflet
+🌟 User rating and review system
+💳 Secure payment processing with Stripe
+🔐 Authentication and authorization with NextAuth.js
+📈 Analytics and reporting with Google Analytics
+📧 Email notifications for booking confirmations and inquiries
+👤 User profiles with customizable settings
+📱 Fully responsive design for mobile and desktop devices
+🚀 Optimized for performance and speed
