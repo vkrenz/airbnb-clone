@@ -32,3 +32,6 @@ Welcome to the forefront of web development!
 - Responsive design for mobile and tablet devices
 - Modular code architecture for easy maintenance and scalability
 
+## Demo
+
+Check out the Airbnb clone and try it out yourself: [https://bnb-nu.vercel.app/](https://bnb-nu.vercel.app/)
