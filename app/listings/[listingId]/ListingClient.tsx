@@ -70,7 +70,7 @@ const ListingClient : React.FC<ListingClientProps> = ({
         },
         {
             name: "Airbnb Service Fee",
-            amount: 102
+            amount: 30
         },
     ];
 
